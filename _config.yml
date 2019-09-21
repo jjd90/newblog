@@ -27,7 +27,7 @@ instagram_username: j.kenobi_
 github_username:  jjd90
 
 # Build settings
-theme: minima
+theme: jekyll-theme-clean-blog
 plugins:
   - jekyll-feed
 
