@@ -3,6 +3,7 @@ layout: post
 title:  "CIT 480 The Beginning"
 date:   2019-09-06 
 categories: Blog
+background: '/PATH_TO_IMAGE' 
 ---
 
 Welcome to my first blog post!
