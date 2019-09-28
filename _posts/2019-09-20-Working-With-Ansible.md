@@ -3,7 +3,7 @@ layout: post
 title: "Working with Ansible"
 date: 2019-09-20
 categories: Blog
-background: '/PATH_TO_IMAGE'
+background: '/img/bg-post.jpg'
 ---
 
 Hi Everyone,
