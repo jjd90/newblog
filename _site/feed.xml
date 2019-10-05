@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/startbootstrap-clean-blog-jekyll/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/startbootstrap-clean-blog-jekyll/" rel="alternate" type="text/html" /><updated>2019-09-21T03:16:28-07:00</updated><id>http://localhost:4000/startbootstrap-clean-blog-jekyll/feed.xml</id><title type="html">Clean Blog</title><subtitle>A Blog Theme by Start Bootstrap</subtitle><author><name>Start Bootstrap</name></author><entry><title type="html">CIT 480 The Beginning</title><link href="http://localhost:4000/startbootstrap-clean-blog-jekyll/blog/2019/09/06/First-Blog-Post.html" rel="alternate" type="text/html" title="CIT 480 The Beginning" /><published>2019-09-06T00:00:00-07:00</published><updated>2019-09-06T00:00:00-07:00</updated><id>http://localhost:4000/startbootstrap-clean-blog-jekyll/blog/2019/09/06/First-Blog-Post</id><content type="html" xml:base="http://localhost:4000/startbootstrap-clean-blog-jekyll/blog/2019/09/06/First-Blog-Post.html">&lt;p&gt;Welcome to my first blog post!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/newblog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/newblog/" rel="alternate" type="text/html" /><updated>2019-10-04T19:07:15-07:00</updated><id>http://localhost:4000/newblog/feed.xml</id><title type="html">JDs CIT 480 Blog</title><subtitle>A Blog about my experience taking CIT 480</subtitle><author><name>Juan Delgado</name></author><entry><title type="html">Project 0</title><link href="http://localhost:4000/newblog/2019/10/04/Project-0.html" rel="alternate" type="text/html" title="Project 0" /><published>2019-10-04T00:00:00-07:00</published><updated>2019-10-04T00:00:00-07:00</updated><id>http://localhost:4000/newblog/2019/10/04/Project-0</id><content type="html" xml:base="http://localhost:4000/newblog/2019/10/04/Project-0.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;This week centers on our first official projects nickname Project 0. The project consists of creating a webserver using amazon web services as well as using github and slack to help the group members collaborate. The project seems easy right? well nope it is not. Being that no one in our group has ever used amazon web services it can be a little daunting to move forward. Luckily the professor provided some lab material for amazon web services to help us out.&lt;/p&gt;
+
+&lt;p&gt;First things first our group needed a name, we settled on GitLegion. Git – taken from git hub and Legion – a multitude of people. Pretty clever if you ask me. With no lab for the week our group was ready to focus on the project and assigning task to each member. The project is broken down into task which once done will make up the webserver and webpage. The task consists of the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Purchase a Domain (T)&lt;/li&gt;
+  &lt;li&gt;Setup AWS Virtual Private Cloud (VPC)&lt;/li&gt;
+  &lt;li&gt;Setup a Web Server on AWS Elastic Compute Cloud (EC2)&lt;/li&gt;
+  &lt;li&gt;Setup your Domain&lt;/li&gt;
+  &lt;li&gt;Generate TLS Certificates&lt;/li&gt;
+  &lt;li&gt;Ansible Playbook&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first task of purchasing a domain was completed during our class time. We were able to acquire GitLegion.dev as our official domain, not a bad address at $12 from google domains.&lt;/p&gt;
+
+&lt;p&gt;The rest of the task have been divided up amongst our group. I was lucky enough to get assigned the ansible playbook. Which is cool because I was the first to complete the playbooks from the lab; so, this should be a piece of cake for me. I maybe speaking too soon though since I haven’t stared the coding yet.&lt;/p&gt;
+
+&lt;p&gt;For the most part we are still in the early stages of the project and we expect to have it completed sometime next week. I will be posting again next week with a follow up on our progress. Thanks for reading!&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Prometheus</title><link href="http://localhost:4000/newblog/blog/2019/09/26/Prometheus-Node_Exporter.html" rel="alternate" type="text/html" title="Prometheus" /><published>2019-09-26T00:00:00-07:00</published><updated>2019-09-26T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/09/26/Prometheus-Node_Exporter</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/09/26/Prometheus-Node_Exporter.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;Welcome back for another weekly edition of CIT 480 Blog.&lt;/p&gt;
+
+&lt;p&gt;I wanted to start off with a recap/update on last week’s Lab 2. After some troubleshooting and research, I was finally able to complete the Ansible playbooks that I was working on. I have to admit that it was a challenging lab to me, but I am grateful with the outcome and especially with the amount of knowledge I gained.&lt;/p&gt;
+
+&lt;p&gt;Moving forward, this week’s lab involved working with Prometheus, another piece of software unknown to me. As always, I began with a little bit of research on Prometheus, so that I could understand what exactly I am working on. Prometheus is an open source system monitoring and alerting software tool. The lab involved creating a new docker container and installing Prometheus on it as well as node_explorer.&lt;/p&gt;
+
+&lt;p&gt;The process went smooth for the most from beginning to end. Once the docker container is fired up I installed updates as well as wget and Prometheus. I ended up learning about the tar command which was a good thing. Once I verified that Prometheus was up and running through my browser, I took the required screenshot and I was done.&lt;/p&gt;
+
+&lt;p&gt;The second process involved installing node_exporter and using Prometheus to bring up CPU metrics on the local container. Node_exporter is an add on to Prometheus that gives the ability to track node metrics like CPU usage and such.&lt;/p&gt;
+
+&lt;p&gt;I ended up creating a new container for this section and installing Prometheus all over again. Then I installed node_exporter which was as well a smooth install. Once installed and started node_exporter goes to work. I brought up a browser window and connected to Prometheus then I brought up the cpu metric graph took a screenshot. That was it the lab had been completed and I done.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Working with Ansible</title><link href="http://localhost:4000/newblog/blog/2019/09/20/Working-With-Ansible.html" rel="alternate" type="text/html" title="Working with Ansible" /><published>2019-09-20T00:00:00-07:00</published><updated>2019-09-20T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/09/20/Working-With-Ansible</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/09/20/Working-With-Ansible.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;Welcome back for another weekly edition of CIT 480 Blog.&lt;/p&gt;
+
+&lt;p&gt;This week I was tasked with creating two Ansible playbook files. The first playbook was required to install traceroute, create two new groups, create users for each group, and lastly set permission for both groups. The second playbook was required to install a LAMP environment, the affinity, and composer. Being that I had never heard of Ansible I knew I was in for a good learning experience.&lt;/p&gt;
+
+&lt;p&gt;Like with all projects I began with a simple google search. Next thing you know I have about fifteen tabs open on my web browser with no idea, in hell, on what to exactly do. After a few minutes of back and forth between webpage tutorials and youtube videos I started to understand what exactly an Ansible playbook is all about. It is a simple, yet complex, file written in YML that can be used to configure multiple systems with a simple command and a press of the enter key.&lt;/p&gt;
+
+&lt;p&gt;Now that I was aware about what exactly an Ansible playbook the next question was, “What’s the structure and the syntax?”. Once again, I found myself overloading on the numerous amounts of tutorials and videos that were available online. Eventually stumbling on a webpage where I began to understand the process and structure. Ansible files are easy to structure once you start to understand how commands are written out (sample command below).&lt;/p&gt;
+
+&lt;p&gt;At the top of the file you start by specifying the target hosts and then right underneath you start to list the task you want to complete. Ansible playbooks use what are called modules to specify the commands that the playbooks should run. You would normally run an apache install by typing out, “apt-get install apache2”. In Ansible the apt-get command, and any other command you can think of, has a corresponding module. For apt-get that module is apt.&lt;/p&gt;
+
+&lt;p&gt;For most modules the module (command) type is superseded by a name field which is more of a comment that explains what that portion of the task with do as seen above I gave the task a name of “Install Apache2”. Second you specify the module (command) that you want to call in my case the “apt” module is the ansible equivalent of “apt-get”. Below that the name of the software package to be installed should be specified, in my example I specified “apache2”. Then the state is set to latest for the latest version.&lt;/p&gt;
+
+&lt;p&gt;For the apt module you have to specify that you want to run a apt-get so you set the force_apt_get to yes. Lastly, I set the cache to be updated. Below is the sample:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;hosts: localhost&lt;/li&gt;
+  &lt;li&gt;remote_user: root&lt;/li&gt;
+  &lt;li&gt;tasks:
+  	- name: install apache2
+    &lt;ul&gt;
+      &lt;li&gt;apt:
+        &lt;ul&gt;
+          &lt;li&gt;name: apache2&lt;/li&gt;
+          &lt;li&gt;state: latest&lt;/li&gt;
+          &lt;li&gt;force_apt_get: yes&lt;/li&gt;
+          &lt;li&gt;update_cache: yes&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ultimately, having to work on an Ansible playbook was not a daunting as I originally thought it would be. Yes, there is a new syntax that need to be learned but that’s nothing when you think about the knowledge that is gained in the process.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading!&lt;/p&gt;
+
+&lt;p&gt;P.S. Since submitting this blog I have yet to finish the playbooks. I will give an update on next weeks blog. Stay tuned!&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">CIT 480 The Beginning</title><link href="http://localhost:4000/newblog/blog/2019/09/06/First-Blog-Post.html" rel="alternate" type="text/html" title="CIT 480 The Beginning" /><published>2019-09-06T00:00:00-07:00</published><updated>2019-09-06T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/09/06/First-Blog-Post</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/09/06/First-Blog-Post.html">&lt;p&gt;Welcome to my first blog post!&lt;/p&gt;
 
 &lt;p&gt;My name is Juan, but I prefer to go by Johnny. I’m currently a senior majoring in Computer Information Technology and minoring in Anthropology. Yes!, it’s a weird combination CIT and Anthropology but I have to admit that while taking an archeology I grew to like it a lot. Anyways, back to the important topic this CIT 480 blog. The goal is to update my page with a weekly blog post from now until the end of the semester. Wish me Luck!&lt;/p&gt;
 
@@ -17,7 +86,7 @@
 &lt;p&gt;Thanks for reading!&lt;/p&gt;
 
 &lt;p&gt;[UPDATE]
- I was eventually able to figure it out with the help of the professor. It turned out that I had a bad container and all I needed to do was blow it up and recreate it (mind blown). Then again, the professor had mentioned that containers are designed to be easy create or delete when needed.&lt;/p&gt;</content><author><name>Start Bootstrap</name></author><summary type="html">Welcome to my first blog post!</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/startbootstrap-clean-blog-jekyll/jekyll/update/2019/09/01/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2019-09-01T00:00:00-07:00</published><updated>2019-09-01T00:00:00-07:00</updated><id>http://localhost:4000/startbootstrap-clean-blog-jekyll/jekyll/update/2019/09/01/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/startbootstrap-clean-blog-jekyll/jekyll/update/2019/09/01/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+ I was eventually able to figure it out with the help of the professor. It turned out that I had a bad container and all I needed to do was blow it up and recreate it (mind blown). Then again, the professor had mentioned that containers are designed to be easy create or delete when needed.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Welcome to my first blog post!</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/newblog/jekyll/update/2019/09/01/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2019-09-01T00:00:00-07:00</published><updated>2019-09-01T00:00:00-07:00</updated><id>http://localhost:4000/newblog/jekyll/update/2019/09/01/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/newblog/jekyll/update/2019/09/01/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
 
@@ -33,4 +102,4 @@
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Start Bootstrap</name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
