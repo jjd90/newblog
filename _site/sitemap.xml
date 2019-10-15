@@ -17,8 +17,12 @@
 <lastmod>2019-09-26T00:00:00-07:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/newblog/2019/10/04/Project-0.html</loc>
+<loc>http://localhost:4000/newblog/blog/2019/10/04/Project-0.html</loc>
 <lastmod>2019-10-04T00:00:00-07:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/newblog/blog/2019/10/11/Project-0-continued.html</loc>
+<lastmod>2019-10-11T00:00:00-07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/newblog/about.html</loc>
@@ -31,5 +35,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/newblog/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/newblog/posts/page2/</loc>
 </url>
 </urlset>

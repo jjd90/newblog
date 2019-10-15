@@ -3,6 +3,7 @@ layout: post
 title:  "Prometheus"
 date:   2019-09-26
 categories: Blog
+background: '/img/bg-post.jpg'
 ---
 
 
