@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/newblog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/newblog/" rel="alternate" type="text/html" /><updated>2019-10-18T21:16:41-07:00</updated><id>http://localhost:4000/newblog/feed.xml</id><title type="html">JDs CIT 480 Blog</title><subtitle>A Blog about my experience taking CIT 480</subtitle><author><name>Juan Delgado</name></author><entry><title type="html">What a Week</title><link href="http://localhost:4000/newblog/blog/2019/10/18/What-A-Week.html" rel="alternate" type="text/html" title="What a Week" /><published>2019-10-18T00:00:00-07:00</published><updated>2019-10-18T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/10/18/What-A-Week</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/10/18/What-A-Week.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/newblog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/newblog/" rel="alternate" type="text/html" /><updated>2019-10-24T17:03:48-07:00</updated><id>http://localhost:4000/newblog/feed.xml</id><title type="html">JDs CIT 480 Blog</title><subtitle>A Blog about my experience taking CIT 480</subtitle><author><name>Juan Delgado</name></author><entry><title type="html">Creating an AWS EC2 Instance</title><link href="http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance.html" rel="alternate" type="text/html" title="Creating an AWS EC2 Instance" /><published>2019-10-24T00:00:00-07:00</published><updated>2019-10-24T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;For this blog post I will be walking you through the process of creating an EC2 instance in Amazon Web Services using an ubuntu instance and we will set it up so that we can SSH into the instance through a Command Line Interface terminal. Let’s get started:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;In AWS navigate to the Services &amp;gt; Compute &amp;gt; EC2 and under the “Create Instance” section select Launch Instance&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In the Choose and Amazon Machine Image (AMI) search bar type in “Ubuntu” and select the first result named “Ubuntu Server 18.04 LTS (HVM), SSD Volume Type” then click Select.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next in the Choose an Instance Type windows leave the default option which should be “General Purpose  t2.micro” this option is apart of the free tier and we will not have to spend any money to use it. At the bottom right click on next.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In the Configure Instance Details window leave the defaults except for the “Network, Subnet, Auto-assign Public IP”. For the network option make sure to select the desired VPC or leave the default on. For the Subnet option make sure to select the subnet that is public otherwise we will not be able to connect to the instance. Lastly for the Auto-assign Public IP option select enable. Click on next to move to the next window.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In the Add Storage window go ahead and leave the default options and click next.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In the Add Tags windows we will create a new tag with the kay “Name” and in the “Value” section go ahead an create a name for the instance.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In the Configure Security Group window leave the default option of “Create a new security group” for the Assign a security group option. At the bottom you will we a section with a firewall rule for SSH. Go ahead and leave it as is since we will be using SSH to remote in we need to have this rule. You can as well add additional rules if you would like. When done click on Review and Launch&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In the Review and Launch windows verify your option and settings then you can click on the Launch button.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the next window you will need to download the new keypair then name it and save it to your local computer. This key is very important as it will be used to remote into the instance later.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once the instance is launched you should navigate to the instances windows and select your new instance then click connect. A window will pop up with detailed instructions on how to connect to the new instance via SSH. I will not include those steps here since they are detailed, and AWS make it clear on what needs to be done.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Congratulation you have created a new EC2 instance in AWS&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">What a Week</title><link href="http://localhost:4000/newblog/blog/2019/10/18/What-A-Week.html" rel="alternate" type="text/html" title="What a Week" /><published>2019-10-18T00:00:00-07:00</published><updated>2019-10-18T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/10/18/What-A-Week</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/10/18/What-A-Week.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
 
 &lt;p&gt;What a week this has been, due to a massive wildfire that affected Porter Ranch mountains and the surrounding cities. CSUN closed the campus down for the weekend which meant that our project presentation had to be pushed another week. While I should be cheering with joy, I was not that happy about it.&lt;/p&gt;
 
