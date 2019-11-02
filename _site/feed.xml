@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/newblog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/newblog/" rel="alternate" type="text/html" /><updated>2019-10-24T17:03:48-07:00</updated><id>http://localhost:4000/newblog/feed.xml</id><title type="html">JDs CIT 480 Blog</title><subtitle>A Blog about my experience taking CIT 480</subtitle><author><name>Juan Delgado</name></author><entry><title type="html">Creating an AWS EC2 Instance</title><link href="http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance.html" rel="alternate" type="text/html" title="Creating an AWS EC2 Instance" /><published>2019-10-24T00:00:00-07:00</published><updated>2019-10-24T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/newblog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/newblog/" rel="alternate" type="text/html" /><updated>2019-11-02T13:54:43-07:00</updated><id>http://localhost:4000/newblog/feed.xml</id><title type="html">JDs CIT 480 Blog</title><subtitle>A Blog about my experience taking CIT 480</subtitle><author><name>Juan Delgado</name></author><entry><title type="html">Install Ansible on Ubuntu and Run Playbook Againts AWS Instance</title><link href="http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS.html" rel="alternate" type="text/html" title="Install Ansible on Ubuntu and Run Playbook Againts AWS Instance" /><published>2019-11-01T00:00:00-07:00</published><updated>2019-11-01T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS.html">&lt;p&gt;Hi Everyone,
+For this blog post I will be walking you though the process of installing Ansible on ubuntu and then running the Ansible playbook against an Amazon Web Services EC2 instance.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;In an Ubuntu terminal type in the following commands to install ansible:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;$ sudo apt update&lt;/li&gt;
+      &lt;li&gt;$ sudo apt install software-properties-common&lt;/li&gt;
+      &lt;li&gt;$ sudo apt-add-repository –yes –update ppa:ansible/ansible&lt;/li&gt;
+      &lt;li&gt;$ sudo apt install ansible&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;1a. To make sure that ansible was installed correctly run the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - $ ansible --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next will be the installation of the AWS CLI application which will give us the ability to run the playbooks without having to log in or specifying credentials in our Ansible file (more secure).&lt;/p&gt;
+
+    &lt;p&gt;2a. We will be using pip to install aws cli so make sure it is installed by running the following command:
+       - $ pip –version&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   If pip is not installed run the following commands: 
+	
+   Pip2
+        - $ sudo apt install python-pip
+   Pip3
+        - $ sudo apt install python3-pip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;2b. Run the following command to run the AWS CLI install:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   Pip2
+        - $ pip2 install awscli --upgrade –user
+   Pip3
+        - $ pip3 install awscli --upgrade –user
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;2c. To make sure that AWS CLI was installed run the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - $ aws –version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, we will need to generate access keys for the IAM user which you will be using to connect to the EC2 instance. You can generate those keys by going to the IAM section in AWS then going into users and selecting the desired user and lastly going into the “Security Credentials” section and clicking “Create Access Keys”. Make note of the ID and Secret.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now back at the terminal run the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- $ aws configure
+
+      You will be asked for the following information:
+      AWS Access Key ID: &amp;lt;enter key&amp;gt;
+      AWS Secret Access Key: &amp;lt;enter key&amp;gt;
+      Default region name: &amp;lt;can be any region I used us-west-2&amp;gt;
+      Default output format: json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We will now go back to ansible and configure the host (Inventory) file with the information of the instance that we will want to run the Ansible playbook against.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Note: create an AWS EC2 instance running Ubuntu manually. There
+       are methods to automate the provisioning of EC2 instances
+       but for simplicity create it manually. Also make sure to
+       save the keypair file which we will also need and that
+       in the security group you open ports 22, 80, and 443 as
+       we will be installing apache2 using ansible.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;5a. Navigate to the following directory “/etc/ansible/” If the directory does not exist create it. Inside of that 
+       directory there should be a host file if not create the host file using you favorite cli editor (I use vim) 
+       and then type in the following:&lt;/p&gt;
+
+    &lt;p&gt;-[aws]
+   -&lt;Public IP=&quot;&quot; of=&quot;&quot; EC2=&quot;&quot;&gt; ansible_user=ubuntu ansible_ssh_private_key_file=&amp;lt;location .pem file&amp;gt;&lt;/Public&gt;&lt;/p&gt;
+
+    &lt;p&gt;-Example:
+   -0.0.0.0 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/keypair.pem&lt;/p&gt;
+
+    &lt;p&gt;5b. To verify that the inventory is pulled correctly run the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - ansible all --list-hosts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now that the inventory file is ready, create a simple Ansible playbook and make sure to specify the host and aws. My playbook looks like this (playbook.yml):&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-       ---
+-       - hosts: aws
+-	 tasks:
+-	     - name: install apache2
+-	       become: true
+-	       apt:
+-                  name: apache2
+-                  state: latest
+-                  force_apt_get: yes
+-	
+-             - name: start apache2 service
+-	       service:
+-	             name: apache2
+-	             state: started
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now is the moment of truth, type in the following command within the directory that you have your ansible playbook in:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - ansible-playbook playbook.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If all went well, you should see the ansible output and then completion message. Congratulations you have successfully ran an Ansible playbook against an AWS EC2 instance. If you run into any issues, please contact me or run a google search on your error message. Google works wonders!&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone, For this blog post I will be walking you though the process of installing Ansible on ubuntu and then running the Ansible playbook against an Amazon Web Services EC2 instance.</summary></entry><entry><title type="html">Creating an AWS EC2 Instance</title><link href="http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance.html" rel="alternate" type="text/html" title="Creating an AWS EC2 Instance" /><published>2019-10-24T00:00:00-07:00</published><updated>2019-10-24T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
 
 &lt;p&gt;For this blog post I will be walking you through the process of creating an EC2 instance in Amazon Web Services using an ubuntu instance and we will set it up so that we can SSH into the instance through a Command Line Interface terminal. Let’s get started:&lt;/p&gt;
 
