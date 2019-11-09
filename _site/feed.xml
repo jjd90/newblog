@@ -1,4 +1,204 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/newblog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/newblog/" rel="alternate" type="text/html" /><updated>2019-11-02T13:54:43-07:00</updated><id>http://localhost:4000/newblog/feed.xml</id><title type="html">JDs CIT 480 Blog</title><subtitle>A Blog about my experience taking CIT 480</subtitle><author><name>Juan Delgado</name></author><entry><title type="html">Install Ansible on Ubuntu and Run Playbook Againts AWS Instance</title><link href="http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS.html" rel="alternate" type="text/html" title="Install Ansible on Ubuntu and Run Playbook Againts AWS Instance" /><published>2019-11-01T00:00:00-07:00</published><updated>2019-11-01T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS.html">&lt;p&gt;Hi Everyone,
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/newblog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/newblog/" rel="alternate" type="text/html" /><updated>2019-11-08T18:56:50-08:00</updated><id>http://localhost:4000/newblog/feed.xml</id><title type="html">JDs CIT 480 Blog</title><subtitle>A Blog about my experience taking CIT 480</subtitle><author><name>Juan Delgado</name></author><entry><title type="html">Installing Snipe-It on Ubuntu</title><link href="http://localhost:4000/newblog/blog/2019/11/08/Snipe-It-Install.html" rel="alternate" type="text/html" title="Installing Snipe-It on Ubuntu" /><published>2019-11-08T00:00:00-08:00</published><updated>2019-11-08T00:00:00-08:00</updated><id>http://localhost:4000/newblog/blog/2019/11/08/Snipe-It-Install</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/11/08/Snipe-It-Install.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;For this post I will be walking you through the process of Installing Snipe-It Asset Manager on an AWS EC2 Ubuntu Instance.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;In AWS create an EC2 Ubuntu instance. This is a rather simple process but if you have never created an EC2 instance please follow the link to a previous post where I walk you through the process:&lt;/p&gt;
+
+    &lt;p&gt;https://jjd90.github.io/newblog/blog/2019/10/24/Creating-an-EC2-Instance.html&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Connect to the EC2 Instance via SSH or your preferred method. If you are using SSH over a terminal you command will looks something like this:&lt;/p&gt;
+
+    &lt;p&gt;ssh -i “newInstanceKey.pem” ubuntu@ec2-13-233-13-164.us-west-2.compute.amazonaws.com&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once you are connected to the EC2 instance go ahead and update the system then install Git (will be used to install Snipe_It) by running the following commands&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;sudo apt-get update&lt;/li&gt;
+      &lt;li&gt;sudo apt-get -y upgrade&lt;/li&gt;
+      &lt;li&gt;sudo apt-get -y install git&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, Install Apache2 webserver, start it, and enable it by running the following commands:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;sudo apt-get -y install apache2&lt;/li&gt;
+      &lt;li&gt;sudo systemctl start apache2&lt;/li&gt;
+      &lt;li&gt;sudo systemctl enable apache2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, Install PHP and its dependencies by running the following command:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;sudo apt-get -y install php php-pdo php-mbstring php-tokenizer php-curl php-mysql php-ldap php-zip php-fileinfo php-gd php-dom php-mcrypt&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, Is the installation of MariaDB which we will use to create our Snipe-It database. The following commands will install Maria DB, start MariaDB, and enable MariaDB:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;sudo apt-get -y install mariadb-server&lt;/li&gt;
+      &lt;li&gt;sudo systemctl start mysql&lt;/li&gt;
+      &lt;li&gt;sudo systemctl enable mysql&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, you will need to secure the MariaDB installation by running the command below, It will ask you to create a new root password, as well as give you the options to remove test database and remove any anonymous users.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;sudo mysql_secure_installation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;After securing Maria DB, log in to MariaDB using the new password you created in the step above and create a new database and user for Snipe-It. Run the following commands:&lt;/p&gt;
+
+    &lt;p&gt;Log In command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - mysql -u root -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Database and User creation commands:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - CREATE DATABASE &amp;lt;snipeit DB Name&amp;gt;;
+   - CREATE USER '&amp;lt; snipeituser name &amp;gt;'@'localhost' IDENTIFIED BY '&amp;lt; Password&amp;gt;';
+   - GRANT ALL PRIVILEGES ON &amp;lt;snipeit DB Name&amp;gt;;.* TO '&amp;lt; snipeituser name &amp;gt;'@'localhost';
+   - FLUSH PRIVILEGES;
+   - EXIT;
+
+        Note: Make sure to replace &amp;lt;snipeit DB Name&amp;gt; with 
+        whatever you want to call the database, as well as 
+        &amp;lt; snipeituser name &amp;gt; and &amp;lt; Password&amp;gt; with whichever 
+        username and password you want.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The last piece of software to be installed, before Snipe-It, is Composer. Install it via the following commands:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;cd ~&lt;/li&gt;
+      &lt;li&gt;
+        &lt;table&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;td&gt;curl -sS https://getcomposer.org/installer&lt;/td&gt;
+              &lt;td&gt;php&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/li&gt;
+      &lt;li&gt;sudo mv composer.phar /usr/local/bin/composer&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now it’s time to install Snipe-It using Git (installed in the first step). Run the following commands:&lt;/p&gt;
+
+    &lt;p&gt;10a. First change into the webservers root directory via the command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - cd /var/www/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;10b. Second, Clone the Snipe-It repository for Github:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - sudo git clone https://github.com/snipe/snipe-it snipe-it
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, is the creation of the .env file for Snipe-It. The .env file is basically a configuration file that we will customize to reflect the server and database settings so that Snipe-It can run correctly. Run the following commands to change into the Snipe-It directory then create a new .env file:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;cd /var/www/snipe-it&lt;/li&gt;
+      &lt;li&gt;sudo cp .env.example .env&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, Open the .env file and edit some of the contents. I use VIM text editor but feel free to use any editor of your choice.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;sudo vim .env&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Edit the following lines:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  APP_URL=null      	(Provide your domain or IP here, I used 
+                         my EC2 public IP)
+  APP_TIMEZONE='UTC' 	(Change it according to your country)
+
+  DB_DATABASE=null   	(Provide the database name you created 
+                         earlier)
+  DB_USERNAME=null	Provide database user's username you 
+                         created earlier)
+  DB_PASSWORD=null   	(Provide the DB user's password you 
+                         created earlier)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Save your changes then exit the editor.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, the folder permissions and ownership for Snipe-It will need to be specified. The permissions will be set for the storage and public/uploads directories within the /var/www/snipe-it directory:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;sudo chown -R www-data:www-data storage public/uploads&lt;/li&gt;
+      &lt;li&gt;sudo chmod -R 755 storage&lt;/li&gt;
+      &lt;li&gt;sudo chmod -R 755 public/uploads&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, The installation of PHP dependencies using Composer is required. Run the following command from within the /var/www/snipe-it directory:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;sudo composer install –no-dev –prefer-source&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, is the process of generation and APP_KEY for Snipe-It to use. The following command will generate a new key and automatically paste it into the .env file:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;sudo php artisan key:generate&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For Snipe-It to work and be served up as a webpage, it is required to create a new virtual host file for apache. The following steps will make that happen:&lt;/p&gt;
+
+    &lt;p&gt;16a. Run the following command to create a new virtual file:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - sudo vim /etc/apache2/sites-available/snipeit-hostfile.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;16b. Add the code below to the virtual file:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;VirtualHost *:80&amp;gt;
+  	     ServerName snipeit.example.com
+   	     DocumentRoot /var/www/snipe-it/public
+  	     &amp;lt;Directory /var/www/snipe-it/public&amp;gt;
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride All
+		Order allow,deny
+   		allow from all
+     &amp;lt;/Directory&amp;gt;
+  &amp;lt;/VirtualHost&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;16c. Save and close the file then run the following commands to activate the host file and restart apache:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - sudo a2ensite snipeit-hostfile.conf
+  - sudo a2enmod rewrite
+  - sudo systemctl restart apache2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Finally, we reach the end of the instllation. The next step is to connect to the IP/Domain that you set for your snipe-it installation. Upon doing that you will get to a preflight window which will allow you to finish the configuration through a web browser. You can either type in the IP address or the domain as shown below:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  http://snipeit.example.com or http://127.0.0.1 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Congratulations you have now successfully installed snipe it on an EC2 instance!&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Install Ansible on Ubuntu and Run Playbook Againts AWS Instance</title><link href="http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS.html" rel="alternate" type="text/html" title="Install Ansible on Ubuntu and Run Playbook Againts AWS Instance" /><published>2019-11-01T00:00:00-07:00</published><updated>2019-11-01T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS.html">&lt;p&gt;Hi Everyone,
 For this blog post I will be walking you though the process of installing Ansible on ubuntu and then running the Ansible playbook against an Amazon Web Services EC2 instance.&lt;/p&gt;
 
 &lt;ol&gt;
