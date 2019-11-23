@@ -3,7 +3,7 @@ layout: post
 title: "Installing a LAMP Stack on Ubunu"
 date: 2019-11-22
 categories: Blog
-background: '/img/posts/04.jpg'
+background: '/img/posts/07.jpg'
 ---
 
 Hi Everyone,
@@ -26,7 +26,7 @@ For this blog post I will be walking you through the process of installing a LAM
 
 4. Now we need to verify that apache is running correctly by going to a web browser and typing in the IP of the machine that has Ubuntu installed. If you are using a VM then you will need to most likely use the local host IP address with the port that you specified when you created the VM. IF you are using a server than you should be able to just use the servers IP address. You will see the page with the following heading:
 
-          “Apache2 Ubuntu Default Page”
+      “Apache2 Ubuntu Default Page”
 
 5. Next is the installation of MySQL which is used as a database. Run the following command to install MySQL and make sure to change the root password when prompted.
 
@@ -46,7 +46,7 @@ For this blog post I will be walking you through the process of installing a LAM
 		DirectoryIndex index.php index.html index.cgi index.pl index.xhtml ind$
           </IfModule>
 
-       Save the changes and exit out.
+      Save the changes and exit out.
 
       b. Aside from installing PHP we will also need to install some PHP modules by running the following command:
 
@@ -61,11 +61,11 @@ For this blog post I will be walking you through the process of installing a LAM
           phpinfo ();
         ?>
 
-        Save the changes and exit out.
+      Save the changes and exit out.
 
 9. Finally, it’s time to test the file we just created. Open a web browser and type in the following into your address bar:
 
-          “IP address”/info.php
+      “IP address”/info.php
 
 If you see a PHP information screen, then congratulations you have successfully installed a LAMP stack on an Ubuntu system. If you have issues, please contact me and I will be happy to help you out.
 
