@@ -1,4 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/newblog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/newblog/" rel="alternate" type="text/html" /><updated>2019-11-14T14:39:40-08:00</updated><id>http://localhost:4000/newblog/feed.xml</id><title type="html">JDs CIT 480 Blog</title><subtitle>A Blog about my experience taking CIT 480</subtitle><author><name>Juan Delgado</name></author><entry><title type="html">Installing Terraform on MacOS</title><link href="http://localhost:4000/newblog/blog/2019/11/14/Installing-Terraform.html" rel="alternate" type="text/html" title="Installing Terraform on MacOS" /><published>2019-11-14T00:00:00-08:00</published><updated>2019-11-14T00:00:00-08:00</updated><id>http://localhost:4000/newblog/blog/2019/11/14/Installing-Terraform</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/11/14/Installing-Terraform.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/newblog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/newblog/" rel="alternate" type="text/html" /><updated>2019-11-22T17:40:55-08:00</updated><id>http://localhost:4000/newblog/feed.xml</id><title type="html">JDs CIT 480 Blog</title><subtitle>A Blog about my experience taking CIT 480</subtitle><author><name>Juan Delgado</name></author><entry><title type="html">Installing a LAMP Stack on Ubunu</title><link href="http://localhost:4000/newblog/blog/2019/11/22/Installing-LAMP-Stack-Ubunt.html" rel="alternate" type="text/html" title="Installing a LAMP Stack on Ubunu" /><published>2019-11-22T00:00:00-08:00</published><updated>2019-11-22T00:00:00-08:00</updated><id>http://localhost:4000/newblog/blog/2019/11/22/Installing-LAMP-Stack-Ubunt</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/11/22/Installing-LAMP-Stack-Ubunt.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;For this blog post I will be walking you through the process of installing a LAMP stack on Ubuntu.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;To begin you will need to make sure that you are running Ubuntu 18.04 or higher installed. As well make sure that the system is up to date by running the following command:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;$sudo apt-get update&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We will now being the installation of the necessary software; Starting with Apache. Run the first command to install Apache and then the second command to verify that it was installed correctly and running.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;$sudo apt-get install apache2&lt;/li&gt;
+      &lt;li&gt;$sudo service apache2 status&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, verify that the firewall has a profile for apache by running the first command and then make sure that you allow traffic to ports 80 and 443 by running the second command.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;$sudo ufw app list&lt;/li&gt;
+      &lt;li&gt;$sudo ufw app info “Apache Full”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now we need to verify that apache is running correctly by going to a web browser and typing in the IP of the machine that has Ubuntu installed. If you are using a VM then you will need to most likely use the local host IP address with the port that you specified when you created the VM. IF you are using a server than you should be able to just use the servers IP address. You will see the page with the following heading:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   “Apache2 Ubuntu Default Page”
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next is the installation of MySQL which is used as a database. Run the following command to install MySQL and make sure to change the root password when prompted.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;$sudo apt-get install mysql-server&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;After installing MySQL the next step is to install PHP using the following command:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;$sudo apt-get install php libapache2-mod-php php-mysql&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In the next few steps we will verify that PHP was installed correctly. To do so we will first need to make a configuration change to Apache so that it serves up files with a PHP extension first rather than files with HTML extensions and we will also install some dependencies. Run the following command to open up the configuration file for editing:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;$sudo vim /etc/apache2/mods-enabled/dir.conf&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;a. Within the file contents locate the section &lt;IfModule mode_dir.c=&quot;&quot;&gt; and type index.php in front of the index.html it should look like this
+       &lt;IfModule mode_dir.c=&quot;&quot;&gt;
+     DirectoryIndex index.php index.html index.cgi index.pl index.xhtml ind$
+       &lt;/IfModule&gt;&lt;/IfModule&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Save the changes and exit out.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;b. Aside from installing PHP we will also need to install some PHP modules by running the following command:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;$ sudo apt-get install php-cli&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lastly, we will create a new file called index.php in the web root directory to test PHP. Run the following command to create the file:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;$sudo nano /var/www/html/info.php&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;a. Type the following into the file:
+     &lt;?php 
+       phpinfo ();
+     ?&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Save the changes and exit out.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Finally, it’s time to test the file we just created. Open a web browser and type in the following into your address bar:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   “IP address”/info.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you see a PHP information screen, then congratulations you have successfully installed a LAMP stack on an Ubuntu system. If you have issues, please contact me and I will be happy to help you out.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Installing Terraform on MacOS</title><link href="http://localhost:4000/newblog/blog/2019/11/14/Installing-Terraform.html" rel="alternate" type="text/html" title="Installing Terraform on MacOS" /><published>2019-11-14T00:00:00-08:00</published><updated>2019-11-14T00:00:00-08:00</updated><id>http://localhost:4000/newblog/blog/2019/11/14/Installing-Terraform</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/11/14/Installing-Terraform.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
 
 &lt;p&gt;For this blog post I will be walking you through the process of installing Terraform on a MacOS system.&lt;/p&gt;
 
@@ -502,23 +594,4 @@ We meet again on October 9th and once again had no luck getting the instance up.
 
 &lt;p&gt;Thanks for reading!&lt;/p&gt;
 
-&lt;p&gt;P.S. Since submitting this blog I have yet to finish the playbooks. I will give an update on next weeks blog. Stay tuned!&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">CIT 480 The Beginning</title><link href="http://localhost:4000/newblog/blog/2019/09/06/First-Blog-Post.html" rel="alternate" type="text/html" title="CIT 480 The Beginning" /><published>2019-09-06T00:00:00-07:00</published><updated>2019-09-06T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/09/06/First-Blog-Post</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/09/06/First-Blog-Post.html">&lt;p&gt;Welcome to my first blog post!&lt;/p&gt;
-
-&lt;p&gt;My name is Juan, but I prefer to go by Johnny. I’m currently a senior majoring in Computer Information Technology and minoring in Anthropology. Yes!, it’s a weird combination CIT and Anthropology but I have to admit that while taking an archeology I grew to like it a lot. Anyways, back to the important topic this CIT 480 blog. The goal is to update my page with a weekly blog post from now until the end of the semester. Wish me Luck!&lt;/p&gt;
-
-&lt;p&gt;To kick off my first blog post, I will be writing about my experience with trying to complete the first lab and creating my first ever github blog page. Initially the lab seemed like it would be a piece of cake that was until page 9 when a dreaded error message began. After creating and logging into a docker container named cit160; and using the guest account to run the “class_setup” command the process would instantly fail.&lt;/p&gt;
-
-&lt;p&gt;Since I couldn’t successfully get the command to run correctly. I moved on to the next step in which I connected over SSH to the CSUN server.  Knowing that I wouldn’t be able to complete the epilogue steps within the cit160 container I had created. I opted to run the same commands on the CSUN SSH server which worked like a charm. I ended up copying the lab report file from the CSUN SSH server over to my desktop and that was that for the lab. Mission Accomplished!&lt;/p&gt;
-
-&lt;p&gt;The Blog portion was much more fun to complete than the Lab. Once you do the research and learn the basics of how git hub commands work it is a smooth process. You install Jekyll on your machine, create the folder and files that will hold all the necessary information for your blog page, then push all those files and folders to a github repository.&lt;/p&gt;
-
-&lt;p&gt;Lastly. You create a secondary branch called “gh-pages” which github recognizes. Github instantly host the contents of the “gh-pages” as a website via a personalized link. Mine happens to be:&lt;/p&gt;
-
-&lt;p&gt;https://jjd90.github.io/blog/&lt;/p&gt;
-
-&lt;p&gt;In conclusion, I have to admit that learning github and Jekyll was a much more fun process for me while using docker and trying to get the lab completed ended up being much more complex than I figured it would be. As I write this, I have yet to get the class_setup to run successfully on my docker cit160 container.&lt;/p&gt;
-
-&lt;p&gt;Thanks for reading!&lt;/p&gt;
-
-&lt;p&gt;[UPDATE]
- I was eventually able to figure it out with the help of the professor. It turned out that I had a bad container and all I needed to do was blow it up and recreate it (mind blown). Then again, the professor had mentioned that containers are designed to be easy create or delete when needed.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Welcome to my first blog post!</summary></entry></feed>
+&lt;p&gt;P.S. Since submitting this blog I have yet to finish the playbooks. I will give an update on next weeks blog. Stay tuned!&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry></feed>
