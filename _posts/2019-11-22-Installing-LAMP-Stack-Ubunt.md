@@ -3,7 +3,7 @@ layout: post
 title: "Installing a LAMP Stack on Ubunu"
 date: 2019-11-22
 categories: Blog
-background: '/img/posts/07.jpeg'
+background: '/img/posts/08.jpeg'
 ---
 
 Hi Everyone,
