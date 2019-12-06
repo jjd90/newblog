@@ -133,3 +133,5 @@ For this blog post I will be walking you through the process of working with Goo
          </body>
    </html>
 ```
+
+Congratulation you have finished the Google Maps API tutorial. 
