@@ -58,5 +58,36 @@ For this blog post I will be walking you through the process of working with Goo
    </html>
 ```
 
-   Now that we have declared a div that specifies the location at which we want the map to show up we can insert the code that actually initialized the map.
+   Now that we have declared a div that specifies the location at which we want the map to show up we can insert the code that actually initialized the map. We will also include some necessary code that tells the webpage to load the html and css asynchronously so that the map is loaded when the page is loaded.
+   
+```html   
+   <script>
+    // Initialize and add the map to the HTML document
+    function initMap() {
+       // The map, centered at CSUN
+       var map = new google.maps.Map(document.getElementById("map"), {
+       zoom: 16.8,
+       center: { lat: 34.24, lng: -118.528 }
+       });
+
+       //create marker where double click occurs
+       google.maps.event.addListener(map, "dblclick", function(e) {
+       placeMarker(e.latLng);
+       });
+
+       function placeMarker(position) {
+         var marker = new google.maps.Marker({
+         position: position,
+         map: map
+         });
+       }
+    }
+   </script>
+   <!-- The Code below is the code required so that the map scripts load asynchronously with the html
+   <script
+        async
+        defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg1N-AnDZ04iUD--sCb20DoYnu5s1InZE&callback=initMap"
+      ></script>
+```
 
