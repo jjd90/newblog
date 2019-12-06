@@ -24,18 +24,19 @@ For this blog post I will be walking you through the process of working with Goo
 
 4. Next, we need to write in the code that will declare the file as an HTML document. The code is below:
 <pre>
-   -<!DOCTYPE html>
-     -<html lang="en">
-       -<head>
-    		-<title>Matador Discounts</title>
-    		-<meta charset="utf-8">
-  		-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		-<meta name="viewport" content="width=device-width, initial-scale=1">
- 	     -</head>  
-  	   -<body>
-       -</body>
-   -</html>
+   <!DOCTYPE html>
+     <html lang="en">
+       <head>
+         <title>Matador Discounts</title>
+         <meta charset="utf-8">
+  	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+ 	</head>  
+  	<body>
+        </body>
+    </html>
 </pre>
+
 5. Now, we will need to initialize the map also know as create the map. We will insert the code below into the body section of the html file. Goggle maps api is javascript code so we will need to also declare that the code is a script. I point out were we declare that in the code below:
 
    We will also be declaring a div in the html body which will be the exact location in which the map will appear. I will show that first
