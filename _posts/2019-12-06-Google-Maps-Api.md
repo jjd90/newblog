@@ -83,7 +83,7 @@ For this blog post I will be walking you through the process of working with Goo
        }
     }
    </script>
-   <!-- The Code below is the code required so that the map scripts load asynchronously with the html
+   <!-- The Code below is the code required so that the map scripts load asynchronously with the html -->
    <script
         async
         defer
