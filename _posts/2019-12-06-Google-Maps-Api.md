@@ -83,11 +83,11 @@ For this blog post I will be walking you through the process of working with Goo
        }
     }
    </script>
-   <!-- The Code below is the code required so that the map scripts load asynchronously with the html -->
+   <!-- The Code below is the code required so that the map scripts load asynchronously with the html you will also need the app key that you requested when you first created an account-->
    <script
         async
         defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg1N-AnDZ04iUD--sCb20DoYnu5s1InZE&callback=initMap"
+        src="https://maps.googleapis.com/maps/api/js?key=ENTER-YOUR-APP-KEY-HERE&callback=initMap"
       ></script>
 ```
 
