@@ -40,22 +40,23 @@ For this blog post I will be walking you through the process of working with Goo
 5. Now, we will need to initialize the map also know as create the map. We will insert the code below into the body section of the html file. Goggle maps api is javascript code so we will need to also declare that the code is a script. I point out were we declare that in the code below:
 
    We will also be declaring a div in the html body which will be the exact location in which the map will appear. I will show that first
-
+```html
    <!DOCTYPE html>
      <html lang="en">
-          <head>
-    		    <title>Matador Discounts</title>
-    		    <meta charset="utf-8">
-  	       	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		        <meta name="viewport" content="width=device-width, initial-scale=1">
- 	        </head>  
-  	         <body>
-		           <div id="map"></div>         <----- at this line is where the map is generated
-			         <script>
-				                         <----- where the map code goes (code below)
-			         </script>
-             </body>
+       <head>
+         <title>Matador Discounts</title>
+	 <meta charset="utf-8">
+  	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+ 	</head>  
+  	<body>
+           <div id="map"></div>         <!-- at this line is where the map is generated -->
+           <script>
+		         <----- where the map code goes (code below)
+           </script>
+         </body>
    </html>
+```
 
    Now that we have declared a div that specifies the location at which we want the map to show up we can insert the code that actually initialized the map.
 
