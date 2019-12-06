@@ -91,3 +91,44 @@ For this blog post I will be walking you through the process of working with Goo
       ></script>
 ```
 
+6. Once you have added you APP key you are done and when you load the html file you should see a map get generated. You full code should look like this:
+
+```html
+   <!DOCTYPE html>
+     <html lang="en">
+       <head>
+         <title>Matador Discounts</title>
+	 <meta charset="utf-8">
+  	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+ 	</head>  
+  	<body>
+           <div id="map"></div>       
+           <script>
+             // Initialize and add the map to the HTML document
+             function initMap() {
+               // The map, centered at CSUN
+               var map = new google.maps.Map(document.getElementById("map"), {
+               zoom: 16.8,
+               center: { lat: 34.24, lng: -118.528 }
+               });
+
+               //create marker where double click occurs
+               google.maps.event.addListener(map, "dblclick", function(e) {
+               placeMarker(e.latLng);
+               });
+              function placeMarker(position) {
+              var marker = new google.maps.Marker({
+              position: position,
+              map: map
+              });
+             }
+           </script>
+           <script
+            async
+            defer
+            src="https://maps.googleapis.com/maps/api/js?key=ENTER-YOUR-APP-KEY-HERE&callback=initMap"
+           ></script>		   
+         </body>
+   </html>
+```
