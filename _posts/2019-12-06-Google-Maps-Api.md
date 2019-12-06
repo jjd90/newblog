@@ -58,5 +58,5 @@ For this blog post I will be walking you through the process of working with Goo
    </html>
 ```
 
-    Now that we have declared a div that specifies the location at which we want the map to show up we can insert the code that actually initialized the map.
+   Now that we have declared a div that specifies the location at which we want the map to show up we can insert the code that actually initialized the map.
 
