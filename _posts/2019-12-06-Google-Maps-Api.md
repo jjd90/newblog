@@ -123,6 +123,7 @@ For this blog post I will be walking you through the process of working with Goo
               map: map
               });
              }
+           }
            </script>
            <script
             async
