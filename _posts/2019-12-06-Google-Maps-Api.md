@@ -13,6 +13,7 @@ For this blog post I will be walking you through the process of working with Goo
 1. First you will need to create an account with google maps platform. Click on the link below to navigate to that page.
 
      https://cloud.google.com/maps-platform/?_ga=2.21995963.1280624522.1575611520-2022702463.1575611520#get-started
+     
      Make sure to only select the Maps option.
      Name the project whatever you would like.
        Note: you will need a credit card, you can use a prepaid card. For our purposes the cost will be very minimal and just cost a few cents. You do receive a $100 credit.
