@@ -52,11 +52,11 @@ For this blog post I will be walking you through the process of working with Goo
   	<body>
            <div id="map"></div>         <!-- at this line is where the map is generated -->
            <script>
-		         <----- where the map code goes (code below)
+		         <!-- where the map code goes (code below) -->
            </script>
          </body>
    </html>
 ```
 
-   Now that we have declared a div that specifies the location at which we want the map to show up we can insert the code that actually initialized the map.
+    Now that we have declared a div that specifies the location at which we want the map to show up we can insert the code that actually initialized the map.
 
