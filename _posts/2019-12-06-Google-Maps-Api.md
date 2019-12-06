@@ -23,7 +23,7 @@ For this blog post I will be walking you through the process of working with Goo
 3. Now is the process of creating the HTML file. Go ahead an create a file with the .html extension. 
 
 4. Next, we need to write in the code that will declare the file as an HTML document. The code is below:
-<pre><code class="html">
+{% highlight html %}
    <!DOCTYPE html>
      <html lang="en">
        <head>
@@ -35,7 +35,7 @@ For this blog post I will be walking you through the process of working with Goo
   	<body>
         </body>
     </html>
-</pre>
+{% endhighlight %}
 
 5. Now, we will need to initialize the map also know as create the map. We will insert the code below into the body section of the html file. Goggle maps api is javascript code so we will need to also declare that the code is a script. I point out were we declare that in the code below:
 
