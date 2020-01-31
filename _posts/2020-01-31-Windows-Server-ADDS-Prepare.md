@@ -1,4 +1,10 @@
-
+---
+layout: post
+title: "Windows Server Install and setup in Preparation for Active Directory Install "
+date: 2020-01-31
+categories: Blog
+background: '/img/posts/09.jpeg'
+---
 
 Hi Everyone,
 
@@ -8,11 +14,11 @@ Active Directory Domain Services (AD DS) and components such as DNS, DCHP, and a
 might be connected to AD DS. This blog post will focus on creating a lab environment and installing 
 Windows server 2016. With that being said let’s get started. 
 
-1.	Choosing your environment:
+1. Choosing your environment:
 
-For these purposes I will be using a virtual environment but please be aware that AD DS would be better if installed on a physical server. If you can get your hands on a such server great; otherwise a virtual environment will be fine. I will be using virtual box, but you can use any hypervisor that you would like.
+    For these purposes I will be using a virtual environment but please be aware that AD DS would be better if installed on a physical       server. If you can get your hands on a such server great; otherwise a virtual environment will be fine. I will be using virtual box,     but you can use any hypervisor that you would like.
 
-2.	Now that we are ready to officially start go ahead and create a bootable disk/usb with Windows Server 2016. WS 2016 can be acquired from Microsoft as an evaluation copy that can later be activated (I recommend rufus to create bootable usb drives). If using a virtual environment go ahead and attach the WS 2016 ISO file and boot up from it. 
+ 2.Now that we are ready to officially start go ahead and create a bootable disk/usb with Windows Server 2016. WS 2016 can be acquired from Microsoft as an evaluation copy that can later be activated (I recommend rufus to create bootable usb drives). If using a virtual environment go ahead and attach the WS 2016 ISO file and boot up from it. 
 
 3.	Once booted up at the start up screen leave the default settings and click on “Next” and then “Install Now”
 
