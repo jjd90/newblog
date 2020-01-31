@@ -29,7 +29,7 @@ Windows server 2016. With that being said let’s get started.
 3. Once booted up at the start up screen leave the default settings and click on “Next” and
    then “Install Now”.
    
-   !(/img/resources/2020-01-31-Post/3.jpg)
+   ![img](/img/resources/2020-01-31-Post/3.jpg)
 
 4. At the OS selection menu make sure to select “Windows Server 2016 Standard Evaluation
    (Desktop Experience)” then click “Next”. 
