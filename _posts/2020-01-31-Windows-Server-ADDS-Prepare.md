@@ -29,10 +29,12 @@ Windows server 2016. With that being said let’s get started.
 3. Once booted up at the start up screen leave the default settings and click on “Next” and
    then “Install Now”.
    
-   ![img](/newblog/img/resources/2020-01-31-Post/3.jpeg)
+   ![Instruction3screenshot](/newblog/img/resources/2020-01-31-Post/3.jpeg)
 
 4. At the OS selection menu make sure to select “Windows Server 2016 Standard Evaluation
    (Desktop Experience)” then click “Next”. 
+   
+   ![Instruction4screenshot](/newblog/img/resources/2020-01-31-Post/4.jpeg)
    
         Note: we will not be using a server core
         installation due to the complexity of set up. 
@@ -41,7 +43,11 @@ Windows server 2016. With that being said let’s get started.
 
 6. At the Installation Type Window select “Custom: Install Windows Only (Advanced)”.
 
+   ![Instruction6screenshot](/newblog/img/resources/2020-01-31-Post/6.jpeg)
+
 7. Now select the drive on which you want to install Windows Server then click on “Next”.
+
+   ![Instruction7screenshot](/newblog/img/resources/2020-01-31-Post/7.jpeg)
 
 8. Windows will go through the installation process and your server might restart a few
    times during the process.
@@ -61,11 +67,17 @@ Windows server 2016. With that being said let’s get started.
 12. On the taskbar at the bottom click on the folder icon to open up a windows explorer
     window. To the left you will see an entry names “This PC” right click on it and
     select “properties” and then the system window ill be displayed.
+    
+    ![Instruction12screenshot](/newblog/img/resources/2020-01-31-Post/12.jpeg)
 
 13. In the system windows under the section named “Computer name, domain, and workgroup
     settings” select “Change settings” which is to the right.
+    
+    ![Instruction13screenshot](/newblog/img/resources/2020-01-31-Post/13.jpeg)
 
 14. The “System Properties” window will be displayed, select the button labeled “Change”.
+    
+    ![Instruction14screenshot](/newblog/img/resources/2020-01-31-Post/14.jpeg)
 
 15. In the field right under “Computer name:” type in the name that you would like to
     give the server. Then click “Okay” to close the window then restart the server for
@@ -84,6 +96,8 @@ Windows server 2016. With that being said let’s get started.
 17.	To get to the network settings go ahead an click on the windows icon to the bottom left
     and then type “Control Panel” then click on the control panel Icon to bring up the control
     panel window.
+    
+    ![Instruction17screenshot](/newblog/img/resources/2020-01-31-Post/17.jpeg)
 
 18.	Click on the “Network and Internet” link, the non the next window click on the “Network
     and Sharing Center” link.
@@ -91,9 +105,13 @@ Windows server 2016. With that being said let’s get started.
 19.	On the network and sharing center window click on the “ethernet” link which is to the right
     of the page right next to “connections:”; this will launch the “Ethernet Status” window. On
     this window click on the “Properties” button.
+    
+    ![Instruction19screenshot](/newblog/img/resources/2020-01-31-Post/19.jpeg)
 
 20.	The “Ethernet Properties” window will now show. Highlight the field that is named “Internet
      Protocol Version 4 (TCP/IPv4)” and then select the “Properties” button.
+     
+     ![Instruction20screenshot](/newblog/img/resources/2020-01-31-Post/20.jpeg)
 
         Note: Before proceeding make sure that you have identified the static 
         IP address that you will be assigning to the server. You can leave 
