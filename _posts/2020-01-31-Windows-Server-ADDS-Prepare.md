@@ -69,9 +69,10 @@ Windows server 2016. With that being said let’s get started.
     give the server. Then click “Okay” to close the window then restart the server for
     the changes to take effect.
 
-        Note: I will go with a naming convention that is often used and places the name 
-        of the site/organization at the beginning and then PDC afterwards which indicates 
-        that the server is a Primary Domain Controller. It is displayed as “Acme-PDC”. 
+        Note: I will go with a naming convention that is often used and places 
+        the name of the site/organization at the beginning and then PDC 
+        afterwards which indicates that the server is a Primary Domain 
+        Controller. It is displayed as “Acme-PDC”. 
 
 16. The next step is to assign a static IP address to the server. Since it will act as a
     primary domain controller it is a very good idea to give it a static address that neve
@@ -92,9 +93,10 @@ Windows server 2016. With that being said let’s get started.
 20.	The “Ethernet Properties” window will now show. Highlight the field that is named “Internet
      Protocol Version 4 (TCP/IPv4)” and then select the “Properties” button.
 
-        Note: Before proceeding make sure that you have identified the static IP address that you
-        will be assigning to the server. You can leave the DNS server setting as is for the meantime
-        but be aware that once we create the domain and activate AD DS the DNS addresses will change
+        Note: Before proceeding make sure that you have identified the static 
+        IP address that you will be assigning to the server. You can leave 
+        the DNS server setting as is for the meantime but be aware that once 
+        we create the domain and activate AD DS the DNS addresses will change
         (This will be covered on the next blog post as well).
 
 21. In the "Internet Protocol Version 4 (TCP/IPv4)" window go ahead and type in the IP address that 
