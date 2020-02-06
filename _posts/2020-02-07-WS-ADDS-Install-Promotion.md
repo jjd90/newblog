@@ -76,18 +76,18 @@ Hi Everyone,
 12. After the server restarts and the server manager window load you will notice that there is a caution sign
     at the top right on the top right of the window next to manage. Click on the flag.
     
-   ![Instruction12screenshot](/newblog/img/resources/2020-02-07-Post/12.jpg)
+    ![Instruction12screenshot](/newblog/img/resources/2020-02-07-Post/12.jpg)
 
 13. A small window will pop up saying that the server will need to be promoted to a domain controller. Go ahead
     and click on the blue wording.
     
-   ![Instruction13screenshot](/newblog/img/resources/2020-02-07-Post/13.jpg)
+    ![Instruction13screenshot](/newblog/img/resources/2020-02-07-Post/13.jpg)
 
 14. The “Active Directory Domain Services Configuration Wizard” window will pop up and the “Deployment
      Configuration” section will be displayed. Select the option for “Add New Forest” and then type in the
      name that you will give your domain. I will be using acme.local then click “next”.
      
-   ![Instruction14screenshot](/newblog/img/resources/2020-02-07-Post/14.jpg)
+    ![Instruction14screenshot](/newblog/img/resources/2020-02-07-Post/14.jpg)
 
 15. Next, on the “Domain Controller Options” leave the default functional levels and controller capabilities.
     Then create a password for the Directory Services Restore Mode (DSRM) and then click “Next”.
@@ -95,7 +95,7 @@ Hi Everyone,
         Note: make sure to save the password. If you ever have to recover the domain
         you will need it.
         
-   ![Instruction15screenshot](/newblog/img/resources/2020-02-07-Post/15.jpg)
+    ![Instruction15screenshot](/newblog/img/resources/2020-02-07-Post/15.jpg)
 
 16. For the next three sections “DNS Options”, “Additional Options”, and “Paths” leave the defaults and click
     on “Next”.
@@ -103,7 +103,7 @@ Hi Everyone,
 17. At the “Review Options” window glance over the settings you specified to make sure everything looks good.
     Once ready click on “Next”.
     
-   ![Instruction17screenshot](/newblog/img/resources/2020-02-07-Post/17.jpg)
+    ![Instruction17screenshot](/newblog/img/resources/2020-02-07-Post/17.jpg)
 
 18. The wizard will not run a prerequisite check to make sure that the promotion to a domain controller doesn’t
     have any issues. You will more that likely see some caution alerts but don’t worry we should still be able
@@ -113,7 +113,7 @@ Hi Everyone,
     	have a current DNS server on the network. This server will eventually become
     	that DNS server.
       
-   ![Instruction18screenshot](/newblog/img/resources/2020-02-07-Post/18.jpg)
+    ![Instruction18screenshot](/newblog/img/resources/2020-02-07-Post/18.jpg)
 
 19. The promotion process will take a few minutes. Once completed the server will restart.
 
