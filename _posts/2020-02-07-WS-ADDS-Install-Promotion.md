@@ -3,7 +3,7 @@ layout: post
 title: "Windows Server AD DS Install and Domain Controller Promotion"
 date: 2020-02-07
 categories: Blog
-background: '/img/posts/04.jpeg'
+background: '/img/posts/04.jpg'
 ---
 
 Hi Everyone,
