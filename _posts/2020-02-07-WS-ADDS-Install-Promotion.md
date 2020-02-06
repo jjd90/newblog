@@ -17,8 +17,9 @@ Hi Everyone,
 1. Let’s start off by powering on the server and letting it load up so that the Windows Server
    Manager window gets displayed.
 
-        Note: The windows server page is were all roles and feature are installed from.
-        This window as well gives you information on the server.
+        Note: The windows server page is were all roles and feature are 
+        installed from. This window as well gives you information on the 
+        server.
         
    ![Instruction1screenshot](/newblog/img/resources/2020-02-07-Post/1.jpg)
 
@@ -42,9 +43,10 @@ Hi Everyone,
 6. At last we get to the “Server Roles” section. Here we would choose all the server roles we would
    want to install. For our purposes click the box next to “Active Directory Domain Services”.
 
-      	Note: The “File and Storage services” box will also be checked off. This is a
-        default role that will already be installed. It will be used by AD DS services
-        and gives you the ability to set up network shared folders.
+        Note: The “File and Storage services” box will also be checked 
+        off. This is a default role that will already be installed. It 
+        will be used by AD DS services and gives you the ability to set 
+        up network shared folders.
         
    ![Instruction6screenshot](/newblog/img/resources/2020-02-07-Post/6.jpg)
 
@@ -59,9 +61,9 @@ Hi Everyone,
 9. You will now be at the “AD DS” section which gives you information on Active Directory. When done
    reading click on “Next”.
 
-      	Note: The wording lets you know that the DNS role is required and will be
-      	automatically installed. That is the reason we didn’t not choose it back
-      	at the Roles section.
+        Note: The wording lets you know that the DNS role is required 
+        and will be automatically installed. That is the reason we 
+        didn’t not choose it back at the Roles section.
         
    ![Instruction9screenshot](/newblog/img/resources/2020-02-07-Post/9.jpg)
 
@@ -92,8 +94,8 @@ Hi Everyone,
 15. Next, on the “Domain Controller Options” leave the default functional levels and controller capabilities.
     Then create a password for the Directory Services Restore Mode (DSRM) and then click “Next”.
 
-        Note: make sure to save the password. If you ever have to recover the domain
-        you will need it.
+        Note: make sure to save the password. If you ever have to 
+        recover the domain you will need it.
         
     ![Instruction15screenshot](/newblog/img/resources/2020-02-07-Post/15.jpg)
 
@@ -109,9 +111,9 @@ Hi Everyone,
     have any issues. You will more that likely see some caution alerts but don’t worry we should still be able
     to continue with the promotion. Go ahead and click on “Install”.
 
-    	Note: Ignore the DNS delegation message. This error occurs because we don’t
-    	have a current DNS server on the network. This server will eventually become
-    	that DNS server.
+        Note: Ignore the DNS delegation message. This error occurs 
+        because we don’t have a current DNS server on the network. 
+        This server will eventually become that DNS server.
       
     ![Instruction18screenshot](/newblog/img/resources/2020-02-07-Post/18.jpg)
 
