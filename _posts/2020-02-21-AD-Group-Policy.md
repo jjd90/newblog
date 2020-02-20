@@ -18,6 +18,7 @@ dive into the computer portion on this post because we have yet to add computers
 process for another blog later.
 
 If you need the actual definitions here it is:
+         
           Group Policy Management is a feature that controls the working environment 
           of user accounts and computer accounts and provides centralized management 
           and configuration of operating systems, applications, and users' settings 
