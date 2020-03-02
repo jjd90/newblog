@@ -69,37 +69,37 @@ get started.
         will be moving it over to the network I created and added the
         DC too later behind the scenes
 
-13.	Now you should be at the “How would you like to set up?” window. Go ahead and select the option for
+13. Now you should be at the “How would you like to set up?” window. Go ahead and select the option for
     “Set up for an organization”. Then click on “Next”.
 
-14.	On the following window DO NOT sign in with a Microsoft account. Instead choose the option for
+14. On the following window DO NOT sign in with a Microsoft account. Instead choose the option for
     “Domain Join Instead”.
 
-15.	You will now be at the user setup window. Go ahead and enter the name for the local admin account
+15. You will now be at the user setup window. Go ahead and enter the name for the local admin account
     that you will like to use. I will use the following “acmeadm”. Then click on “Next”.
 
-16.	Now you will need to create a password for the user. Make sure to make it complex but memorable.
+16. Now you will need to create a password for the user. Make sure to make it complex but memorable.
     Then click on “Next” and enter the password again on the confirmation window.
 
-17.	Up next is the security window screen. You will need to choose and answer 3 security questions. 
+17. Up next is the security window screen. You will need to choose and answer 3 security questions. 
 
-18.	For the next option “activity history” click on “yes”. Then after that for “digital assistant”
+18. For the next option “activity history” click on “yes”. Then after that for “digital assistant”
     click on “Accept”. Lastly, for the privacy settings leave the default and click on “Accept”.
 
-19.	Once all of this is finished you will be taken to the desktop. The last thing we will do is change
+19. Once all of this is finished you will be taken to the desktop. The last thing we will do is change
     the computer name. Go ahead an open the file explorer and then to the left right click on “This PC”
     and then select “Properties”.
 
-20.	You will now be at the system window. Under the section called “Computer name, domain, and workgroup
+20. You will now be at the system window. Under the section called “Computer name, domain, and workgroup
     settings” click on the option to the right called “Change Settings”.
 
-21.	The “Systems Property” window will pop up and you will need to click on the option to the bottom named
+21. The “Systems Property” window will pop up and you will need to click on the option to the bottom named
     “Change..”. The description to the left starts with “To rename this computer…”
 
-22.	On the window that pops up, “Computer Name/Domain Changes”, go ahead and type a good computer name. I
+22. On the window that pops up, “Computer Name/Domain Changes”, go ahead and type a good computer name. I
     will use “acme-user-pc1”. Then go ahead and click “OK”.
 
-23.	Lastly you will be prompted to restart the computer, Click “Okay” and then on back at the “System
+23. Lastly you will be prompted to restart the computer, Click “Okay” and then on back at the “System
     Properties” window click on close. A small window will pop up and go ahead and select “Restart Now”.
 
 Congratulations, you have successfully installed a fresh copy on windows 10 and changed the computer name 
