@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Installing Windows 10 Pro (Domain Environment)"
+title: "Installing Windows 10 Pro For Domain Environment"
 date: 2020-03-06
 categories: Blog
 background: '/img/posts/04.jpg'
