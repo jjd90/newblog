@@ -64,10 +64,10 @@ To get started fire up the computer and make sure it is attached to the same net
 
 16. Once you are back at the log in screen you will need to select “Other User” to log into your domain user account. 
     Type your credential and log in.
-
-    Note: notice how underneath the password section you now see an 
-    indicator that you will be signing into ACME. In other words, 
-    you’re signing onto the ACME domain.
+    
+        Note: notice how underneath the password section you now see an 
+        indicator that you will be signing into ACME. In other words, 
+        you’re signing onto the ACME domain.
 
 Congratulations you have now successfully added a computer to the domain and signed in using a domain user account. 
 On the next blog we will be going over some of the ways that the domain controller has affected this computer. 
