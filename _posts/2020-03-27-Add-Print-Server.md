@@ -16,8 +16,8 @@ makes managing printers very easy and it is all done from one place. Doing so al
 of printers via group policy so you never have to go computer by computer to install a printer. Instead, I 
 will be going over how to set up a print server on a server running Active Directory Domain Services (AD DS).
 
-    Note: Prior to beginning make sure that you have a network 
-    printer on your network ready and configured with an IP address.
+     Note: Prior to beginning make sure that you have a network 
+     printer on your network ready and configured with an IP address.
 
 1. We will begin by installing the print server service. Open the “Server Manger Window” and click on “Manage” 
    at the top right and then “Add Roles and Features”.
@@ -67,12 +67,12 @@ will be going over how to set up a print server on a server running Active Direc
 17. Once the wizard has detected the printer you will see the screen below and be asked to provide the driver software. 
     When ready click “Next” to go to the driver selection window.
 
-    Note: In some cases, the wizard will be able to download the driver if it can find it through windows update.  
+     Note: In some cases, the wizard will be able to download the driver if it can find it through windows update.  
 
 18. At the driver selection window, you can do one of two things. Search for the driver based on the brand or you can 
     choose “Have Disk…” and upload the driver software yourself. For this tutorial we will choose a preinstalled driver. 
-
-    Note: Not all printer brands and drivers will be available. 
+    
+     Note: Not all printer brands and drivers will be available. 
 
 19. On the next section, you will be asked to provide details for the printer such as; Printer Name, Share Name, Location, 
     and Comment. The more important field are the Printer and Share names as there are the names that will show when the
