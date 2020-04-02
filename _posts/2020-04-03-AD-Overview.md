@@ -66,7 +66,7 @@ Hi Everyone,
   ![Instruction6screenshot](/newblog/img/resources/2020-04-03-Post/6.jpg)
 
 
-
+##
 As you can see having an AD environment brings structure and organization. There is a big number of things that 
 can be accomplished with an AD environment. I have only showed a very tiny portion of what can be accomplished. 
 If you find yourself wanting to learn more make sure to conduct research online, you can even find free certification 
