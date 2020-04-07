@@ -21,7 +21,10 @@ share folder and then setting up the group policy.
 
 1. Open a Windows Explore window and navigate to the location where you want to create the folder.
 
-Note: When setting up network shares I usually create a separated partition on the desk just to store files but for this tutorial I will be using the same partition that as the OS also known as the C: drive.
+       Note: When setting up network shares I usually create 
+       a separated partition on the desk just to store files 
+       but for this tutorial I will be using the same partition 
+       that as the OS also known as the C: drive.
 
 2. Once you’re at the location you feel is best go ahead and select new folder from the top tool bar. 
    This will create a new folder that you can name however you like. I will be using the name “Public” 
@@ -56,11 +59,11 @@ Note: When setting up network shares I usually create a separated partition on t
 11. The “New Drive Properties” window will pop up. Go ahead and fill out the information below. When done click 
     on “Ok”.
 
-  -	Action:	 Select “Update”.
-  -	Location: “\\<server name>\ Share folder” (e.g. \\acme-pdc\Public ).
-  -	Reconnect:  Make sure it is selected.
-  -	Label As: This will be the name that shows up for users.
-  -	Drive Letter:  Choose the letter you want.
+     -	Action:	 Select “Update”.
+     -	Location: “\\<server name>\ Share folder” (e.g. \\acme-pdc\Public ).
+     -	Reconnect:  Make sure it is selected.
+     -	Label As: This will be the name that shows up for users.
+     -	Drive Letter:  Choose the letter you want.
 
 12. Back at the “Group Policy Management Editor” you should now see the drive entry and a green icon next to the name.
 
@@ -68,9 +71,11 @@ Note: When setting up network shares I usually create a separated partition on t
     into to a domain user account. Open a Windows Explorer window and navigate to “My PC”. You should now see the folder 
     that we mapped using the group policy. 
 
-Note: It might take a while for the policy to transfer over to the workstation. If at first you don’t see it, restart 
-your computer 2 to 3 times before troubleshooting. You can also run the command “gpupdate /force” in a command prompt.
-
+        Note: It might take a while for the policy to transfer 
+        over to the workstation. If at first you don’t see it, 
+        restart  your computer 2 to 3 times before troubleshooting. 
+        You can also run the command “gpupdate /force” in a command 
+        prompt.
 
 If everything checks out then congratulations, you have successfully set up a network shared folder and deployed it 
 using a group policy. If you experience any issues check your deployment settings again and make sure that you are 
