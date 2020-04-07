@@ -98,6 +98,8 @@ share folder and then setting up the group policy.
         restart  your computer 2 to 3 times before troubleshooting. 
         You can also run the command “gpupdate /force” in a command 
         prompt.
+        
+    ![Instruction13screenshot](/newblog/img/resources/2020-04-10-Post/13.jpg)
 
 If everything checks out then congratulations, you have successfully set up a network shared folder and deployed it 
 using a group policy. If you experience any issues check your deployment settings again and make sure that you are 
