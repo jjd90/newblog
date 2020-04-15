@@ -67,11 +67,11 @@ the steps below.
 10. If all goes well when you sign in the policy will begin to install the software. You can check this by navigating 
     to the Task Manger on the workstation and identifying the “Microsoft Installer” process. 
     
-   ![Instruction10screenshot](/newblog/img/resources/2020-04-17-Post/10.jpg)
+    ![Instruction10screenshot](/newblog/img/resources/2020-04-17-Post/10.jpg)
 
 11. Once finished you will see a chrome shortcut appear on the desktop.
 
-   ![Instruction11screenshot](/newblog/img/resources/2020-04-17-Post/11.jpg)
+    ![Instruction11screenshot](/newblog/img/resources/2020-04-17-Post/11.jpg)
 
 Congratulations you have successfully deployed a software installation using a group policy. If you experience any 
 issues check your deployment settings again. You can also reach out to me for help. 
