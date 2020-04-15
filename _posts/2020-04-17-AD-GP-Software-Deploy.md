@@ -50,11 +50,11 @@ the steps below.
 7. After selecting the software, you will get a pop up. This is where you will select the type of installation that 
    you want. Details are below. I will go with the assign option; you can choose the option that best suites your 
    needs. Then click on “Okay”.
-   
-   ![Instruction7screenshot](/newblog/img/resources/2020-04-17-Post/7.jpg)
 
        Published: User must install software via add or remove programs.
        Assigned: Automatically install on computer for all users.
+       
+   ![Instruction7screenshot](/newblog/img/resources/2020-04-17-Post/7.jpg)
 
 8. You should now see an entry for the software deployment. 
 
