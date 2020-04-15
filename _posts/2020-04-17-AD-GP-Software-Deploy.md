@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AD DS Deploy Software Installs Using Group Policy"
+title: "AD DS Deploy Software Install Using Group Policy"
 date: 2020-04-17
 categories: Blog
 background: '/img/bg-post.jpg'
