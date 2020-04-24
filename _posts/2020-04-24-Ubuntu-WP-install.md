@@ -19,28 +19,40 @@ virtual server as well or a physical one. I will leave that choice up to you.
 1. To get started will need to log into the ubuntu server and update the OS, to do so run the following command:
 
        apt update && apt upgrade
+  
+   ![Instruction1screenshot](/newblog/img/resources/2020-04-24-Post/1.jpg)
 
 2. After updating the OS we will need to install apache2. Run the following command to install apache:
 
        apt install apache2
+       
+   ![Instruction12screenshot](/newblog/img/resources/2020-04-24-Post/2.jpg)
 
 3. After the install of apache2 is complete we need to test the install. To check if the apache2 service is running 
    run the following command:
 
        systemctl status apache2
+       
+   ![Instruction3screenshot](/newblog/img/resources/2020-04-24-Post/3.jpg)
 
 4. You can also make sure that apache2 is installed correctly by going to the server ip address on a web browser. 
 
        http://<IP Address> 
+
+   ![Instruction4screenshot](/newblog/img/resources/2020-04-24-Post/4.jpg)
 
 5. Next, we will need to install MySQL. We will be using the MariaDB variant for this tutorial. Run the following command 
    to install MariaDB.
 
        apt install mariadb-server mariadb-client
 
+   ![Instruction5screenshot](/newblog/img/resources/2020-04-24-Post/5.jpg)
+
 6. Once MariaDB is installed, we will need to secure the installation by running the following command:
 
        mysql_secure_installation
+
+   ![Instruction6screenshot](/newblog/img/resources/2020-04-24-Post/6.jpg)
 
 7. Upon running the command, you will be asked for the root account password. In our case it is blank so go ahead and 
    just press enter to proceed. You will then be asked to create a new root password.
@@ -57,6 +69,8 @@ virtual server as well or a physical one. I will leave that choice up to you.
 12. Now, we will need to install PHP. To do so run the following command:
 
         apt install php php-mysql
+
+    ![Instruction12screenshot](/newblog/img/resources/2020-04-24-Post/12.jpg)
 
 13. Worpress will need a database so we will create one now. Run the following command to create a database:
 
@@ -86,6 +100,8 @@ virtual server as well or a physical one. I will leave that choice up to you.
         cd /tmp
         wget https://wordpress.org/latest.tar.gz
 
+    ![Instruction18screenshot](/newblog/img/resources/2020-04-24-Post/18.jpg)
+
 19. Next we need to uncompress the tar.gz we just downloaded by running the following command:
 
         tar -xvf latest.tar.gz
@@ -111,17 +127,28 @@ virtual server as well or a physical one. I will leave that choice up to you.
 
         https://<server ip>/wordpress
 
+    ![Instruction23screenshot](/newblog/img/resources/2020-04-24-Post/23.jpg)
+
 24. Select your language preference and then select “continue” to go to the “Getting Started” page. After reading the info
     go ahead and select “Let’s Go!”.
+
+    ![Instruction24screenshot](/newblog/img/resources/2020-04-24-Post/24.jpg)
 
 25. Now, you will need to enter the database information that we created previously. Enter the details and then select 
     “Submit”. Now you will be asked to run the wordpress installation, click on “Run the installation” to continue.
 
+    ![Instruction25screenshot](/newblog/img/resources/2020-04-24-Post/25.jpg)
+
 26. You will be taken to another screen where you will create the admin wordpress account. Enter the details and then 
     click on “Install WordPress”.
+    
+    ![Instruction26screenshot](/newblog/img/resources/2020-04-24-Post/26.jpg)
 
 27. If everything is done correctly then you will see a success message. Click on “Log In” to get taken to the wordpress 
     dashboard.
+    
+    ![Instruction27screenshot](/newblog/img/resources/2020-04-24-Post/27.jpg)
+    ![Instruction28screenshot](/newblog/img/resources/2020-04-24-Post/28.jpg)
 
 Congratulations you have successfully installed wordpress on an Ubuntu server. If you have any issues getting the install 
 completed feel free to contact me for help. Thanks for reading!
