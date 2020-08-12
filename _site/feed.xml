@@ -1,597 +1,1260 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/newblog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/newblog/" rel="alternate" type="text/html" /><updated>2019-11-22T17:40:55-08:00</updated><id>http://localhost:4000/newblog/feed.xml</id><title type="html">JDs CIT 480 Blog</title><subtitle>A Blog about my experience taking CIT 480</subtitle><author><name>Juan Delgado</name></author><entry><title type="html">Installing a LAMP Stack on Ubunu</title><link href="http://localhost:4000/newblog/blog/2019/11/22/Installing-LAMP-Stack-Ubunt.html" rel="alternate" type="text/html" title="Installing a LAMP Stack on Ubunu" /><published>2019-11-22T00:00:00-08:00</published><updated>2019-11-22T00:00:00-08:00</updated><id>http://localhost:4000/newblog/blog/2019/11/22/Installing-LAMP-Stack-Ubunt</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/11/22/Installing-LAMP-Stack-Ubunt.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/newblog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/newblog/" rel="alternate" type="text/html" /><updated>2020-08-11T22:07:58-07:00</updated><id>http://localhost:4000/newblog/feed.xml</id><title type="html">JDs CIT Blog</title><subtitle>A Blog about Computer Information Technology</subtitle><author><name>Juan Delgado</name></author><entry><title type="html">Install WordPress on an Ubuntu 18.04 server</title><link href="http://localhost:4000/newblog/blog/2020/04/24/Ubuntu-WP-install.html" rel="alternate" type="text/html" title="Install WordPress on an Ubuntu 18.04 server" /><published>2020-04-24T00:00:00-07:00</published><updated>2020-04-24T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2020/04/24/Ubuntu-WP-install</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2020/04/24/Ubuntu-WP-install.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
 
-&lt;p&gt;For this blog post I will be walking you through the process of installing a LAMP stack on Ubuntu.&lt;/p&gt;
+&lt;p&gt;Welcome back to my CIT blog. This week we will step away from the windows environment and I will walk you through 
+the process of installing WordPress on an Ubuntu 18.04 LTS server. WordPress is a powerful tool used to create 
+websites all around the world. It is one of the more popular website creation tools and the cool thing is that it 
+is free.&lt;/p&gt;
+
+&lt;p&gt;In this scenario I have set up an EC2 (virtual machine) in AWS and installed Ubuntu Server 18.04 LTS. You can use a 
+virtual server as well or a physical one. I will leave that choice up to you.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;To begin you will need to make sure that you are running Ubuntu 18.04 or higher installed. As well make sure that the system is up to date by running the following command:&lt;/p&gt;
+    &lt;p&gt;To get started will need to log into the ubuntu server and update the OS, to do so run the following command:&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;$sudo apt-get update&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt update &amp;amp;&amp;amp; apt upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/1.jpg&quot; alt=&quot;Instruction1screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;We will now being the installation of the necessary software; Starting with Apache. Run the first command to install Apache and then the second command to verify that it was installed correctly and running.&lt;/p&gt;
+    &lt;p&gt;After updating the OS we will need to install apache2. Run the following command to install apache:&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;$sudo apt-get install apache2&lt;/li&gt;
-      &lt;li&gt;$sudo service apache2 status&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install apache2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/2.jpg&quot; alt=&quot;Instruction12screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Next, verify that the firewall has a profile for apache by running the first command and then make sure that you allow traffic to ports 80 and 443 by running the second command.&lt;/p&gt;
+    &lt;p&gt;After the install of apache2 is complete we need to test the install. To check if the apache2 service is running 
+run the following command:&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;$sudo ufw app list&lt;/li&gt;
-      &lt;li&gt;$sudo ufw app info “Apache Full”&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl status apache2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/3.jpg&quot; alt=&quot;Instruction3screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Now we need to verify that apache is running correctly by going to a web browser and typing in the IP of the machine that has Ubuntu installed. If you are using a VM then you will need to most likely use the local host IP address with the port that you specified when you created the VM. IF you are using a server than you should be able to just use the servers IP address. You will see the page with the following heading:&lt;/p&gt;
+    &lt;p&gt;You can also make sure that apache2 is installed correctly by going to the server ip address on a web browser.&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   “Apache2 Ubuntu Default Page”
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://&amp;lt;IP Address&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/4.jpg&quot; alt=&quot;Instruction4screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, we will need to install MySQL. We will be using the MariaDB variant for this tutorial. Run the following command 
+to install MariaDB.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install mariadb-server mariadb-client
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/5.jpg&quot; alt=&quot;Instruction5screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once MariaDB is installed, we will need to secure the installation by running the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql_secure_installation
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/6.jpg&quot; alt=&quot;Instruction6screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Upon running the command, you will be asked for the root account password. In our case it is blank so go ahead and 
+just press enter to proceed. You will then be asked to create a new root password.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;After setting a root password you will be asked if you want to remove anonymous users. Go ahead and enter “Y” for yes.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, you will be asked if you want to disallow root login remotely. For our purpose we don’t need to disallow it, so 
+you enter “N” for no.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, you will be asked if you want to remove the test database. Enter “Y” for yes.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, you will be asked if you want to reload the privilege tables. Enter “Y” for yes.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now, we will need to install PHP. To do so run the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install php php-mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/12.jpg&quot; alt=&quot;Instruction12screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Worpress will need a database so we will create one now. Run the following command to create a database:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u root -p
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Next is the installation of MySQL which is used as a database. Run the following command to install MySQL and make sure to change the root password when prompted.&lt;/p&gt;
+    &lt;p&gt;You will be taken into the mariadb console, to initiate the creation run the command:&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;$sudo apt-get install mysql-server&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;After installing MySQL the next step is to install PHP using the following command:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;$sudo apt-get install php libapache2-mod-php php-mysql&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In the next few steps we will verify that PHP was installed correctly. To do so we will first need to make a configuration change to Apache so that it serves up files with a PHP extension first rather than files with HTML extensions and we will also install some dependencies. Run the following command to open up the configuration file for editing:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;$sudo vim /etc/apache2/mods-enabled/dir.conf&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;a. Within the file contents locate the section &lt;IfModule mode_dir.c=&quot;&quot;&gt; and type index.php in front of the index.html it should look like this
-       &lt;IfModule mode_dir.c=&quot;&quot;&gt;
-     DirectoryIndex index.php index.html index.cgi index.pl index.xhtml ind$
-       &lt;/IfModule&gt;&lt;/IfModule&gt;&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Save the changes and exit out.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;b. Aside from installing PHP we will also need to install some PHP modules by running the following command:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;$ sudo apt-get install php-cli&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Lastly, we will create a new file called index.php in the web root directory to test PHP. Run the following command to create the file:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;$sudo nano /var/www/html/info.php&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;a. Type the following into the file:
-     &lt;?php 
-       phpinfo ();
-     ?&gt;&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Save the changes and exit out.
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE DATABASE wordpress_db;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Finally, it’s time to test the file we just created. Open a web browser and type in the following into your address bar:&lt;/p&gt;
+    &lt;p&gt;Next, we will need to create the database user account. Run the following command:&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   “IP address”/info.php
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'password';
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We will now need to grate privileges for the new user. Run the command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GRANT ALL ON wordpress_db.* TO 'wp_user'@'localhost' IDENTIFIED BY 'password';
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lastly for the DB creation we will need to flush the privileges and then you can exit by running the following 
+commands:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLUSH PRIVILEGES;
+EXIT;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now its time for the good part, the installation of wordpress. We will download the wordpress files to the temp 
+folder by running the following commands:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /tmp
+wget https://wordpress.org/latest.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/18.jpg&quot; alt=&quot;Instruction18screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next we need to uncompress the tar.gz we just downloaded by running the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -xvf latest.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now we will need to copy the wordpress files into the /var/www/html/ directory by running the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp -R wordpress /var/www/html/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Then we will need to change the ownership of the folder that we copied as well as the permissions by running the 
+following commands:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown -R www-data:www-data /var/www/html/wordpress/
+chmod -R 755 /var/www/html/wordpress/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;After changing the permission and ownership we need to create a directory for our uploads. Then we need to also 
+change the permissions for the directory. To do so run the following commands:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir /var/www/html/wordpress/wp-content/uploads
+chown -R www-data:www-data /var/www/html/wordpress/wp-content/uploads/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We will now need to finish the install of wordpress using a browser. To do so navigate to the following directory on 
+your web browser:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://&amp;lt;server ip&amp;gt;/wordpress
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/23.jpg&quot; alt=&quot;Instruction23screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Select your language preference and then select “continue” to go to the “Getting Started” page. After reading the info
+go ahead and select “Let’s Go!”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/24.jpg&quot; alt=&quot;Instruction24screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now, you will need to enter the database information that we created previously. Enter the details and then select 
+“Submit”. Now you will be asked to run the wordpress installation, click on “Run the installation” to continue.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/25.jpg&quot; alt=&quot;Instruction25screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You will be taken to another screen where you will create the admin wordpress account. Enter the details and then 
+click on “Install WordPress”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/26.jpg&quot; alt=&quot;Instruction26screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If everything is done correctly then you will see a success message. Click on “Log In” to get taken to the wordpress 
+dashboard.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/27.jpg&quot; alt=&quot;Instruction27screenshot&quot; /&gt;
+&lt;img src=&quot;/newblog/img/resources/2020-04-24-Post/28.jpg&quot; alt=&quot;Instruction28screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;If you see a PHP information screen, then congratulations you have successfully installed a LAMP stack on an Ubuntu system. If you have issues, please contact me and I will be happy to help you out.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Installing Terraform on MacOS</title><link href="http://localhost:4000/newblog/blog/2019/11/14/Installing-Terraform.html" rel="alternate" type="text/html" title="Installing Terraform on MacOS" /><published>2019-11-14T00:00:00-08:00</published><updated>2019-11-14T00:00:00-08:00</updated><id>http://localhost:4000/newblog/blog/2019/11/14/Installing-Terraform</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/11/14/Installing-Terraform.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+&lt;p&gt;Congratulations you have successfully installed wordpress on an Ubuntu server. If you have any issues getting the install 
+completed feel free to contact me for help. Thanks for reading!&lt;/p&gt;</content><author><name>Juan Delgado</name></author><category term="Blog" /><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">AD DS Deploy Software Install Using Group Policy</title><link href="http://localhost:4000/newblog/blog/2020/04/17/AD-GP-Software-Deploy.html" rel="alternate" type="text/html" title="AD DS Deploy Software Install Using Group Policy" /><published>2020-04-17T00:00:00-07:00</published><updated>2020-04-17T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2020/04/17/AD-GP-Software-Deploy</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2020/04/17/AD-GP-Software-Deploy.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
 
-&lt;p&gt;For this blog post I will be walking you through the process of installing Terraform on a MacOS system.&lt;/p&gt;
+&lt;p&gt;Welcome back to another weekly edition of my CIT blog. For this week we will be sticking with group policies. 
+Last week we created a network folder and deployed it via group policy. This week we will be deploying a software 
+installation. Deploying software via a group policy if very beneficial, it saves time and can be deployed in 
+minutes. We will be deploying Google chrome for this tutorial.&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;To get started, navigate to the terraform downloads webpage and make sure to copy the link address for the MacOS download. The link is also below.&lt;/p&gt;
-
-    &lt;p&gt;https://releases.hashicorp.com/terraform/0.12.13/terraform_0.12.13_darwin_amd64.zip&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next, open up a terminal window and navigate to the directory in which you would like to download the Terraform package. For my download I choose the home directory. Then run the following command to download the package (all one line):&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;$wget https://releases.hashicorp.com/terraform/0.12.13/terraform_0.12.13_darwin_amd64.zip&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Once the download is complete the file will need to be unzipped and then moved into its on directory. Run the following command to unzip the file:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;$unzip terraform_0.12.13_darwin_amd64.zip&lt;/li&gt;
-      &lt;li&gt;$mkdir Terraform&lt;/li&gt;
-      &lt;li&gt;$mv terraform Terraform/&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next, the path will need to be updated so that the Terraform binary can be called from anywhere on the system (e.g desktop, documents, home directories). On the home directory run the following commands to edit the .profile file:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;$cd ~&lt;/li&gt;
-      &lt;li&gt;$ls -al  (this command will display the contents of the home directory)&lt;/li&gt;
-      &lt;li&gt;$vim ~/.profile	(you can use which ever text editor you would like)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Type in the following into your .profile file:&lt;/p&gt;
-
-    &lt;p&gt;export PATH=”$PATH:~/Terraform”&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next, you will need to update the path so that Terraform can be called from anywhere. To do so run the following command:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;$source ~/.profile&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Lastly to make sure that Terraform was installed correctly run the command below. It should return the Terraform version information:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;$terraform –version&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Installing Snipe-It on Ubuntu</title><link href="http://localhost:4000/newblog/blog/2019/11/08/Snipe-It-Install.html" rel="alternate" type="text/html" title="Installing Snipe-It on Ubuntu" /><published>2019-11-08T00:00:00-08:00</published><updated>2019-11-08T00:00:00-08:00</updated><id>http://localhost:4000/newblog/blog/2019/11/08/Snipe-It-Install</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/11/08/Snipe-It-Install.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
-
-&lt;p&gt;For this post I will be walking you through the process of Installing Snipe-It Asset Manager on an AWS EC2 Ubuntu Instance.&lt;/p&gt;
+&lt;p&gt;There are two types of methods to deploy the software, Assign and Publish. When assigning the software, it will
+automatically be installed on every single computer and for all users. If you choose to publish the software, 
+then the user will need to install it via add or remove programs. I will point out where you set this option in 
+the steps below.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;In AWS create an EC2 Ubuntu instance. This is a rather simple process but if you have never created an EC2 instance please follow the link to a previous post where I walk you through the process:&lt;/p&gt;
+    &lt;p&gt;To get started we need to specify the folder in which the software will be installed. You can either create a 
+new network shared folder or use an existing one. Navigate to the folder and copy the software package into it.&lt;/p&gt;
 
-    &lt;p&gt;https://jjd90.github.io/newblog/blog/2019/10/24/Creating-an-EC2-Instance.html&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-17-Post/1.jpg&quot; alt=&quot;Instruction1screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Connect to the EC2 Instance via SSH or your preferred method. If you are using SSH over a terminal you command will looks something like this:&lt;/p&gt;
+    &lt;p&gt;Next, open the group policy management window.&lt;/p&gt;
 
-    &lt;p&gt;ssh -i “newInstanceKey.pem” ubuntu@ec2-13-233-13-164.us-west-2.compute.amazonaws.com&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-17-Post/2.jpg&quot; alt=&quot;Instruction2screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Once you are connected to the EC2 instance go ahead and update the system then install Git (will be used to install Snipe_It) by running the following commands&lt;/p&gt;
+    &lt;p&gt;At the group policy window go ahead and either select and existing group policy or create a new one. For this 
+purpose, I will use the existing group policy. Right click on the policy and select “Edit…”.&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;sudo apt-get update&lt;/li&gt;
-      &lt;li&gt;sudo apt-get -y upgrade&lt;/li&gt;
-      &lt;li&gt;sudo apt-get -y install git&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-17-Post/3.jpg&quot; alt=&quot;Instruction3screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Next, Install Apache2 webserver, start it, and enable it by running the following commands:&lt;/p&gt;
+    &lt;p&gt;The Group Policy Management Editor will pop up. Here we will be setting up the specific policy settings to 
+deploy the software.&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;sudo apt-get -y install apache2&lt;/li&gt;
-      &lt;li&gt;sudo systemctl start apache2&lt;/li&gt;
-      &lt;li&gt;sudo systemctl enable apache2&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-17-Post/4.jpg&quot; alt=&quot;Instruction4screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Next, Install PHP and its dependencies by running the following command:&lt;/p&gt;
+    &lt;p&gt;Navigate to the following sections, Computer Configuration &amp;gt; Policies &amp;gt; Software Settings then right click and 
+select “New” then “Package…”.&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;sudo apt-get -y install php php-pdo php-mbstring php-tokenizer php-curl php-mysql php-ldap php-zip php-fileinfo php-gd php-dom php-mcrypt&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-17-Post/5.jpg&quot; alt=&quot;Instruction5screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Next, Is the installation of MariaDB which we will use to create our Snipe-It database. The following commands will install Maria DB, start MariaDB, and enable MariaDB:&lt;/p&gt;
+    &lt;p&gt;A windows explorer windows will open. Go ahead and navigate to the location on the network shared folder where 
+you placed the software that you want to install.&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;sudo apt-get -y install mariadb-server&lt;/li&gt;
-      &lt;li&gt;sudo systemctl start mysql&lt;/li&gt;
-      &lt;li&gt;sudo systemctl enable mysql&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-17-Post/6.jpg&quot; alt=&quot;Instruction6screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Next, you will need to secure the MariaDB installation by running the command below, It will ask you to create a new root password, as well as give you the options to remove test database and remove any anonymous users.&lt;/p&gt;
+    &lt;p&gt;After selecting the software, you will get a pop up. This is where you will select the type of installation that 
+you want. Details are below. I will go with the assign option; you can choose the option that best suites your 
+needs. Then click on “Okay”.&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;sudo mysql_secure_installation&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;After securing Maria DB, log in to MariaDB using the new password you created in the step above and create a new database and user for Snipe-It. Run the following commands:&lt;/p&gt;
-
-    &lt;p&gt;Log In command:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - mysql -u root -p
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Published: User must install software via add or remove programs.
+Assigned: Automatically install on computer for all users.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Database and User creation commands:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - CREATE DATABASE &amp;lt;snipeit DB Name&amp;gt;;
-   - CREATE USER '&amp;lt; snipeituser name &amp;gt;'@'localhost' IDENTIFIED BY '&amp;lt; Password&amp;gt;';
-   - GRANT ALL PRIVILEGES ON &amp;lt;snipeit DB Name&amp;gt;;.* TO '&amp;lt; snipeituser name &amp;gt;'@'localhost';
-   - FLUSH PRIVILEGES;
-   - EXIT;
-
-        Note: Make sure to replace &amp;lt;snipeit DB Name&amp;gt; with 
-        whatever you want to call the database, as well as 
-        &amp;lt; snipeituser name &amp;gt; and &amp;lt; Password&amp;gt; with whichever 
-        username and password you want.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-17-Post/7.jpg&quot; alt=&quot;Instruction7screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;The last piece of software to be installed, before Snipe-It, is Composer. Install it via the following commands:&lt;/p&gt;
+    &lt;p&gt;You should now see an entry for the software deployment.&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;cd ~&lt;/li&gt;
-      &lt;li&gt;
-        &lt;table&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;
-              &lt;td&gt;curl -sS https://getcomposer.org/installer&lt;/td&gt;
-              &lt;td&gt;php&lt;/td&gt;
-            &lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
-      &lt;/li&gt;
-      &lt;li&gt;sudo mv composer.phar /usr/local/bin/composer&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-17-Post/8.jpg&quot; alt=&quot;Instruction8screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Now it’s time to install Snipe-It using Git (installed in the first step). Run the following commands:&lt;/p&gt;
-
-    &lt;p&gt;10a. First change into the webservers root directory via the command:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - cd /var/www/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;10b. Second, Clone the Snipe-It repository for Github:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - sudo git clone https://github.com/snipe/snipe-it snipe-it
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;That’s it for group policy portion. You will now need to test the policy by heading over to a workstation. A 
+restart of the computer should be enough to receive the policy update. If that doesn’t work, try running the 
+following command in CMD “gpupdate /force” and then restart the workstation.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Next, is the creation of the .env file for Snipe-It. The .env file is basically a configuration file that we will customize to reflect the server and database settings so that Snipe-It can run correctly. Run the following commands to change into the Snipe-It directory then create a new .env file:&lt;/p&gt;
+    &lt;p&gt;If all goes well when you sign in the policy will begin to install the software. You can check this by navigating 
+to the Task Manger on the workstation and identifying the “Microsoft Installer” process.&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;cd /var/www/snipe-it&lt;/li&gt;
-      &lt;li&gt;sudo cp .env.example .env&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-17-Post/10.jpg&quot; alt=&quot;Instruction10screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Next, Open the .env file and edit some of the contents. I use VIM text editor but feel free to use any editor of your choice.&lt;/p&gt;
+    &lt;p&gt;Once finished you will see a chrome shortcut appear on the desktop.&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;sudo vim .env&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;Edit the following lines:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  APP_URL=null      	(Provide your domain or IP here, I used 
-                         my EC2 public IP)
-  APP_TIMEZONE='UTC' 	(Change it according to your country)
-
-  DB_DATABASE=null   	(Provide the database name you created 
-                         earlier)
-  DB_USERNAME=null	Provide database user's username you 
-                         created earlier)
-  DB_PASSWORD=null   	(Provide the DB user's password you 
-                         created earlier)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Save your changes then exit the editor.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next, the folder permissions and ownership for Snipe-It will need to be specified. The permissions will be set for the storage and public/uploads directories within the /var/www/snipe-it directory:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;sudo chown -R www-data:www-data storage public/uploads&lt;/li&gt;
-      &lt;li&gt;sudo chmod -R 755 storage&lt;/li&gt;
-      &lt;li&gt;sudo chmod -R 755 public/uploads&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next, The installation of PHP dependencies using Composer is required. Run the following command from within the /var/www/snipe-it directory:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;sudo composer install –no-dev –prefer-source&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next, is the process of generation and APP_KEY for Snipe-It to use. The following command will generate a new key and automatically paste it into the .env file:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;sudo php artisan key:generate&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;For Snipe-It to work and be served up as a webpage, it is required to create a new virtual host file for apache. The following steps will make that happen:&lt;/p&gt;
-
-    &lt;p&gt;16a. Run the following command to create a new virtual file:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - sudo vim /etc/apache2/sites-available/snipeit-hostfile.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;16b. Add the code below to the virtual file:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &amp;lt;VirtualHost *:80&amp;gt;
-  	     ServerName snipeit.example.com
-   	     DocumentRoot /var/www/snipe-it/public
-  	     &amp;lt;Directory /var/www/snipe-it/public&amp;gt;
-		Options Indexes FollowSymLinks MultiViews
-		AllowOverride All
-		Order allow,deny
-   		allow from all
-     &amp;lt;/Directory&amp;gt;
-  &amp;lt;/VirtualHost&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;16c. Save and close the file then run the following commands to activate the host file and restart apache:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - sudo a2ensite snipeit-hostfile.conf
-  - sudo a2enmod rewrite
-  - sudo systemctl restart apache2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Finally, we reach the end of the instllation. The next step is to connect to the IP/Domain that you set for your snipe-it installation. Upon doing that you will get to a preflight window which will allow you to finish the configuration through a web browser. You can either type in the IP address or the domain as shown below:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  http://snipeit.example.com or http://127.0.0.1 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Congratulations you have now successfully installed snipe it on an EC2 instance!&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Install Ansible on Ubuntu and Run Playbook Againts AWS Instance</title><link href="http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS.html" rel="alternate" type="text/html" title="Install Ansible on Ubuntu and Run Playbook Againts AWS Instance" /><published>2019-11-01T00:00:00-07:00</published><updated>2019-11-01T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/11/01/Ansible-Playbook-AWS.html">&lt;p&gt;Hi Everyone,
-For this blog post I will be walking you though the process of installing Ansible on ubuntu and then running the Ansible playbook against an Amazon Web Services EC2 instance.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;In an Ubuntu terminal type in the following commands to install ansible:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;$ sudo apt update&lt;/li&gt;
-      &lt;li&gt;$ sudo apt install software-properties-common&lt;/li&gt;
-      &lt;li&gt;$ sudo apt-add-repository –yes –update ppa:ansible/ansible&lt;/li&gt;
-      &lt;li&gt;$ sudo apt install ansible&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;1a. To make sure that ansible was installed correctly run the following command:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - $ ansible --version
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next will be the installation of the AWS CLI application which will give us the ability to run the playbooks without having to log in or specifying credentials in our Ansible file (more secure).&lt;/p&gt;
-
-    &lt;p&gt;2a. We will be using pip to install aws cli so make sure it is installed by running the following command:
-       - $ pip –version&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   If pip is not installed run the following commands: 
-	
-   Pip2
-        - $ sudo apt install python-pip
-   Pip3
-        - $ sudo apt install python3-pip
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;2b. Run the following command to run the AWS CLI install:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   Pip2
-        - $ pip2 install awscli --upgrade –user
-   Pip3
-        - $ pip3 install awscli --upgrade –user
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;2c. To make sure that AWS CLI was installed run the following command:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - $ aws –version
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next, we will need to generate access keys for the IAM user which you will be using to connect to the EC2 instance. You can generate those keys by going to the IAM section in AWS then going into users and selecting the desired user and lastly going into the “Security Credentials” section and clicking “Create Access Keys”. Make note of the ID and Secret.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Now back at the terminal run the following command:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- $ aws configure
-
-      You will be asked for the following information:
-      AWS Access Key ID: &amp;lt;enter key&amp;gt;
-      AWS Secret Access Key: &amp;lt;enter key&amp;gt;
-      Default region name: &amp;lt;can be any region I used us-west-2&amp;gt;
-      Default output format: json
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;We will now go back to ansible and configure the host (Inventory) file with the information of the instance that we will want to run the Ansible playbook against.&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Note: create an AWS EC2 instance running Ubuntu manually. There
-       are methods to automate the provisioning of EC2 instances
-       but for simplicity create it manually. Also make sure to
-       save the keypair file which we will also need and that
-       in the security group you open ports 22, 80, and 443 as
-       we will be installing apache2 using ansible.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;5a. Navigate to the following directory “/etc/ansible/” If the directory does not exist create it. Inside of that 
-       directory there should be a host file if not create the host file using you favorite cli editor (I use vim) 
-       and then type in the following:&lt;/p&gt;
-
-    &lt;p&gt;-[aws]
-   -&lt;Public IP=&quot;&quot; of=&quot;&quot; EC2=&quot;&quot;&gt; ansible_user=ubuntu ansible_ssh_private_key_file=&amp;lt;location .pem file&amp;gt;&lt;/Public&gt;&lt;/p&gt;
-
-    &lt;p&gt;-Example:
-   -0.0.0.0 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/keypair.pem&lt;/p&gt;
-
-    &lt;p&gt;5b. To verify that the inventory is pulled correctly run the following command:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - ansible all --list-hosts
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Now that the inventory file is ready, create a simple Ansible playbook and make sure to specify the host and aws. My playbook looks like this (playbook.yml):&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-       ---
--       - hosts: aws
--	 tasks:
--	     - name: install apache2
--	       become: true
--	       apt:
--                  name: apache2
--                  state: latest
--                  force_apt_get: yes
--	
--             - name: start apache2 service
--	       service:
--	             name: apache2
--	             state: started
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Now is the moment of truth, type in the following command within the directory that you have your ansible playbook in:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   - ansible-playbook playbook.yml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;If all went well, you should see the ansible output and then completion message. Congratulations you have successfully ran an Ansible playbook against an AWS EC2 instance. If you run into any issues, please contact me or run a google search on your error message. Google works wonders!&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone, For this blog post I will be walking you though the process of installing Ansible on ubuntu and then running the Ansible playbook against an Amazon Web Services EC2 instance.</summary></entry><entry><title type="html">Creating an AWS EC2 Instance</title><link href="http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance.html" rel="alternate" type="text/html" title="Creating an AWS EC2 Instance" /><published>2019-10-24T00:00:00-07:00</published><updated>2019-10-24T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/10/24/Creating-an-EC2-Instance.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
-
-&lt;p&gt;For this blog post I will be walking you through the process of creating an EC2 instance in Amazon Web Services using an ubuntu instance and we will set it up so that we can SSH into the instance through a Command Line Interface terminal. Let’s get started:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;In AWS navigate to the Services &amp;gt; Compute &amp;gt; EC2 and under the “Create Instance” section select Launch Instance&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In the Choose and Amazon Machine Image (AMI) search bar type in “Ubuntu” and select the first result named “Ubuntu Server 18.04 LTS (HVM), SSD Volume Type” then click Select.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next in the Choose an Instance Type windows leave the default option which should be “General Purpose  t2.micro” this option is apart of the free tier and we will not have to spend any money to use it. At the bottom right click on next.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In the Configure Instance Details window leave the defaults except for the “Network, Subnet, Auto-assign Public IP”. For the network option make sure to select the desired VPC or leave the default on. For the Subnet option make sure to select the subnet that is public otherwise we will not be able to connect to the instance. Lastly for the Auto-assign Public IP option select enable. Click on next to move to the next window.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In the Add Storage window go ahead and leave the default options and click next.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In the Add Tags windows we will create a new tag with the kay “Name” and in the “Value” section go ahead an create a name for the instance.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In the Configure Security Group window leave the default option of “Create a new security group” for the Assign a security group option. At the bottom you will we a section with a firewall rule for SSH. Go ahead and leave it as is since we will be using SSH to remote in we need to have this rule. You can as well add additional rules if you would like. When done click on Review and Launch&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In the Review and Launch windows verify your option and settings then you can click on the Launch button.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;On the next window you will need to download the new keypair then name it and save it to your local computer. This key is very important as it will be used to remote into the instance later.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Once the instance is launched you should navigate to the instances windows and select your new instance then click connect. A window will pop up with detailed instructions on how to connect to the new instance via SSH. I will not include those steps here since they are detailed, and AWS make it clear on what needs to be done.&lt;/p&gt;
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-17-Post/11.jpg&quot; alt=&quot;Instruction11screenshot&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Congratulation you have created a new EC2 instance in AWS&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">What a Week</title><link href="http://localhost:4000/newblog/blog/2019/10/18/What-A-Week.html" rel="alternate" type="text/html" title="What a Week" /><published>2019-10-18T00:00:00-07:00</published><updated>2019-10-18T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/10/18/What-A-Week</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/10/18/What-A-Week.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+&lt;p&gt;Congratulations you have successfully deployed a software installation using a group policy. If you experience any 
+issues check your deployment settings again. You can also reach out to me for help.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><category term="Blog" /><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">AD DS Deploy Network Folder Using Group Policy</title><link href="http://localhost:4000/newblog/blog/2020/04/10/AD-GP-Folder-Share.html" rel="alternate" type="text/html" title="AD DS Deploy Network Folder Using Group Policy" /><published>2020-04-10T00:00:00-07:00</published><updated>2020-04-10T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2020/04/10/AD-GP-Folder-Share</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2020/04/10/AD-GP-Folder-Share.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
 
-&lt;p&gt;What a week this has been, due to a massive wildfire that affected Porter Ranch mountains and the surrounding cities. CSUN closed the campus down for the weekend which meant that our project presentation had to be pushed another week. While I should be cheering with joy, I was not that happy about it.&lt;/p&gt;
+&lt;p&gt;Last week finished up the series of blog post on AD DS. We learned that in a Windows environment having 
+a domain controller can bring structure and organization to your computer/server/network setup. This week 
+we will continue with the Windows environment and I will show you how to map a shared network drive using 
+AD DS group policy.&lt;/p&gt;
 
-&lt;p&gt;Backtracking to where I left off in last weeks post. Our group had a major issue on our hands, none of us could access our EC2 instance. We were officially in panic mode, I was lucky enough to have my Thursday class cancelled and that mean having the time to work on the VPC. I knew that If I couldn’t get it fixed by the end of the day we would be screwed.&lt;/p&gt;
+&lt;p&gt;This is a cool feature because it allows you to share network folders with all or specified user groups. 
+In my time if seen network shares deployments used to deliver important documentation to users such as, 
+department files, policies &amp;amp; procedures, and other job-related files. We will start by creating a network 
+share folder and then setting up the group policy.&lt;/p&gt;
 
-&lt;p&gt;I went to work and after trial and error I was able to find the issue that was causing our issue with the VPC and accessing the EC2 instance. First off, our VPC routing table was all jacked up. Well at least the public IP subnet routing portion. We were missing the routing table entry that forwards traffic to the outside or the world wide web. In AWS the entry is IP/subnet  0.0.0.0/0 once I added the route, I went back to test our EC2 instance but I was still having issues.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Open a Windows Explore window and navigate to the location where you want to create the folder.&lt;/p&gt;
 
-&lt;p&gt;The next step was to verify what subnet the EC2 instance was on. After looking into it I found that our EC2 instance was on a private subnet within our VPC. Being that the private subnets do not route to the outside it explained why we couldn’t SSH into our instance. Unfortunately, you can’t just switch the subnet of an EC2 instance so what I had to do was create an image from the existing instance then create a new EC2 instance. At last, I was successful in accessing the EC2 instance. It was a relief.&lt;/p&gt;
-
-&lt;p&gt;My work wasn’t done though, next came the actual creation of the webserver and all the fun that comes with launching a HTTPS site using Apache2 and a custom Domain. For the most part it wasn’t as difficult as I thought it would be. My major issue was getting certificates created for our site. Luckily, one of our classmates shared the CertBot utility which saved my butt and finally got our website to show up via HTTPS.&lt;/p&gt;
-
-&lt;p&gt;The real kicker is that about 10 minutes after I finished all this work on Friday (10/11/19). I got an email from CSUN that classes had been cancelled for the weekend. You had to be kidding me all that work and we wouldn’t get to present. I was upset but on the bright side, we get more time to prepare for our presentation.&lt;/p&gt;
-
-&lt;p&gt;Hopefully it goes well, I’ll make sure to let you know how it went on next weeks post.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Project 0 Continued</title><link href="http://localhost:4000/newblog/blog/2019/10/11/Project-0-continued.html" rel="alternate" type="text/html" title="Project 0 Continued" /><published>2019-10-11T00:00:00-07:00</published><updated>2019-10-11T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/10/11/Project-0-continued</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/10/11/Project-0-continued.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
-
-&lt;p&gt;This week marks the continuation of work on our Project 0. This post will be relatively small due to the continued work. For the most part we are in full swing and tasked are being worked on as well as documented through GitHub. I am about 80% done with the Ansible playbook. 
-To my surprise the play book code is going to be relatively short as compared to the LAMP stack lab. This is due to less requirements, the professor confirmed this past Saturday that we only really needed apache and PHP installed on out server to host our website. 
-For the most part my playbook is outlined as follows:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Install Apache2&lt;/li&gt;
-  &lt;li&gt;Start Apache2&lt;/li&gt;
-  &lt;li&gt;Install PHP&lt;/li&gt;
-  &lt;li&gt;Copy over the new apache configuration file&lt;/li&gt;
-  &lt;li&gt;Copy over the index html&lt;/li&gt;
-  &lt;li&gt;Restart Apache2 
-We have encountered issues with other portions of the project though. For some reason we cannot ssh into our EC2 instance anymore and the VPC process has had its hiccups as well. We are unsure if the issues are related to public/private key encryption or if its related to the VPC issues that we are having. I will have a brief update on next weeks post with the outcome. 
-If we can manage to fix these issues by Friday October 11th we will be toast and I say that because my portion is dependent on connecting to the instance and running the playbook to get the website up and running.
-We meet again on October 9th and once again had no luck getting the instance up. WE ARE OFFICIALLY IN PANIC MODE!!&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Project 0</title><link href="http://localhost:4000/newblog/blog/2019/10/04/Project-0.html" rel="alternate" type="text/html" title="Project 0" /><published>2019-10-04T00:00:00-07:00</published><updated>2019-10-04T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/10/04/Project-0</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/10/04/Project-0.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
-
-&lt;p&gt;This week centers on our first official projects nickname Project 0. The project consists of creating a webserver using amazon web services as well as using github and slack to help the group members collaborate. The project seems easy right? well nope it is not. Being that no one in our group has ever used amazon web services it can be a little daunting to move forward. Luckily the professor provided some lab material for amazon web services to help us out.&lt;/p&gt;
-
-&lt;p&gt;First things first our group needed a name, we settled on GitLegion. Git – taken from git hub and Legion – a multitude of people. Pretty clever if you ask me. With no lab for the week our group was ready to focus on the project and assigning task to each member. The project is broken down into task which once done will make up the webserver and webpage. The task consists of the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Purchase a Domain (T)&lt;/li&gt;
-  &lt;li&gt;Setup AWS Virtual Private Cloud (VPC)&lt;/li&gt;
-  &lt;li&gt;Setup a Web Server on AWS Elastic Compute Cloud (EC2)&lt;/li&gt;
-  &lt;li&gt;Setup your Domain&lt;/li&gt;
-  &lt;li&gt;Generate TLS Certificates&lt;/li&gt;
-  &lt;li&gt;Ansible Playbook&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The first task of purchasing a domain was completed during our class time. We were able to acquire GitLegion.dev as our official domain, not a bad address at $12 from google domains.&lt;/p&gt;
-
-&lt;p&gt;The rest of the task have been divided up amongst our group. I was lucky enough to get assigned the ansible playbook. Which is cool because I was the first to complete the playbooks from the lab; so, this should be a piece of cake for me. I maybe speaking too soon though since I haven’t stared the coding yet.&lt;/p&gt;
-
-&lt;p&gt;For the most part we are still in the early stages of the project and we expect to have it completed sometime next week. I will be posting again next week with a follow up on our progress. Thanks for reading!&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Prometheus</title><link href="http://localhost:4000/newblog/blog/2019/09/26/Prometheus-Node_Exporter.html" rel="alternate" type="text/html" title="Prometheus" /><published>2019-09-26T00:00:00-07:00</published><updated>2019-09-26T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/09/26/Prometheus-Node_Exporter</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/09/26/Prometheus-Node_Exporter.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
-
-&lt;p&gt;Welcome back for another weekly edition of CIT 480 Blog.&lt;/p&gt;
-
-&lt;p&gt;I wanted to start off with a recap/update on last week’s Lab 2. After some troubleshooting and research, I was finally able to complete the Ansible playbooks that I was working on. I have to admit that it was a challenging lab to me, but I am grateful with the outcome and especially with the amount of knowledge I gained.&lt;/p&gt;
-
-&lt;p&gt;Moving forward, this week’s lab involved working with Prometheus, another piece of software unknown to me. As always, I began with a little bit of research on Prometheus, so that I could understand what exactly I am working on. Prometheus is an open source system monitoring and alerting software tool. The lab involved creating a new docker container and installing Prometheus on it as well as node_explorer.&lt;/p&gt;
-
-&lt;p&gt;The process went smooth for the most from beginning to end. Once the docker container is fired up I installed updates as well as wget and Prometheus. I ended up learning about the tar command which was a good thing. Once I verified that Prometheus was up and running through my browser, I took the required screenshot and I was done.&lt;/p&gt;
-
-&lt;p&gt;The second process involved installing node_exporter and using Prometheus to bring up CPU metrics on the local container. Node_exporter is an add on to Prometheus that gives the ability to track node metrics like CPU usage and such.&lt;/p&gt;
-
-&lt;p&gt;I ended up creating a new container for this section and installing Prometheus all over again. Then I installed node_exporter which was as well a smooth install. Once installed and started node_exporter goes to work. I brought up a browser window and connected to Prometheus then I brought up the cpu metric graph took a screenshot. That was it the lab had been completed and I done.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Working with Ansible</title><link href="http://localhost:4000/newblog/blog/2019/09/20/Working-With-Ansible.html" rel="alternate" type="text/html" title="Working with Ansible" /><published>2019-09-20T00:00:00-07:00</published><updated>2019-09-20T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2019/09/20/Working-With-Ansible</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2019/09/20/Working-With-Ansible.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
-
-&lt;p&gt;Welcome back for another weekly edition of CIT 480 Blog.&lt;/p&gt;
-
-&lt;p&gt;This week I was tasked with creating two Ansible playbook files. The first playbook was required to install traceroute, create two new groups, create users for each group, and lastly set permission for both groups. The second playbook was required to install a LAMP environment, the affinity, and composer. Being that I had never heard of Ansible I knew I was in for a good learning experience.&lt;/p&gt;
-
-&lt;p&gt;Like with all projects I began with a simple google search. Next thing you know I have about fifteen tabs open on my web browser with no idea, in hell, on what to exactly do. After a few minutes of back and forth between webpage tutorials and youtube videos I started to understand what exactly an Ansible playbook is all about. It is a simple, yet complex, file written in YML that can be used to configure multiple systems with a simple command and a press of the enter key.&lt;/p&gt;
-
-&lt;p&gt;Now that I was aware about what exactly an Ansible playbook the next question was, “What’s the structure and the syntax?”. Once again, I found myself overloading on the numerous amounts of tutorials and videos that were available online. Eventually stumbling on a webpage where I began to understand the process and structure. Ansible files are easy to structure once you start to understand how commands are written out (sample command below).&lt;/p&gt;
-
-&lt;p&gt;At the top of the file you start by specifying the target hosts and then right underneath you start to list the task you want to complete. Ansible playbooks use what are called modules to specify the commands that the playbooks should run. You would normally run an apache install by typing out, “apt-get install apache2”. In Ansible the apt-get command, and any other command you can think of, has a corresponding module. For apt-get that module is apt.&lt;/p&gt;
-
-&lt;p&gt;For most modules the module (command) type is superseded by a name field which is more of a comment that explains what that portion of the task with do as seen above I gave the task a name of “Install Apache2”. Second you specify the module (command) that you want to call in my case the “apt” module is the ansible equivalent of “apt-get”. Below that the name of the software package to be installed should be specified, in my example I specified “apache2”. Then the state is set to latest for the latest version.&lt;/p&gt;
-
-&lt;p&gt;For the apt module you have to specify that you want to run a apt-get so you set the force_apt_get to yes. Lastly, I set the cache to be updated. Below is the sample:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;hosts: localhost&lt;/li&gt;
-  &lt;li&gt;remote_user: root&lt;/li&gt;
-  &lt;li&gt;tasks:
-  	- name: install apache2
-    &lt;ul&gt;
-      &lt;li&gt;apt:
-        &lt;ul&gt;
-          &lt;li&gt;name: apache2&lt;/li&gt;
-          &lt;li&gt;state: latest&lt;/li&gt;
-          &lt;li&gt;force_apt_get: yes&lt;/li&gt;
-          &lt;li&gt;update_cache: yes&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note: When setting up network shares I usually create 
+a separated partition on the desk just to store files 
+but for this tutorial I will be using the same partition 
+that as the OS also known as the C: drive.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once you’re at the location you feel is best go ahead and select new folder from the top tool bar. 
+This will create a new folder that you can name however you like. I will be using the name “Public” 
+to denote that it is a public folder.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/2.jpg&quot; alt=&quot;Instruction2screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, we want to set it as a network share folder. Go ahead and Right Click on the folder and click on 
+“Properties” and then on the properties window select the “Share” Tab and then click on the “Share…” button.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/3.jpg&quot; alt=&quot;Instruction3screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the file sharing window go ahead and click on the “Arrow” to the left on the greyed out “Add” button. 
+Then select “Find People”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/4.jpg&quot; alt=&quot;Instruction4screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The “Select Users or Groups” window will pop up. Go ahead and type in “domain users” in the empty box and 
+then click on the “Check Names” button. This will retrieve the domain users’ group and link it to this shared 
+folder. Lastly, click on “Okay” to exit the window.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/5.jpg&quot; alt=&quot;Instruction5screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Back at the “File Share” window you should now see a domain user’ entry. To activate the sharing click on the 
+“Share” button. The folder should now be accessible via a network share.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/6.jpg&quot; alt=&quot;Instruction6screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We will now test to make sure the folder is available over the network. Go ahead and open a new Windows Explorer 
+window and then navigate to the server share by typing in the following address “\&lt;server name=&quot;&quot;&gt;\”. If successful 
+you should see the folder that you shared.&lt;/server&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/7.jpg&quot; alt=&quot;Instruction7screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We can not create the group policy to deploy the folder. Go ahead and open the “Group Policy Management” window. I 
+will use the existing group policy, but you can create a new one. Right click on the group policy name and then 
+select “Edit…”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/8.jpg&quot; alt=&quot;Instruction8screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The “Group Policy Management Editor” will open. Go ahead and navigate the to the following section, “User 
+Configuration &amp;gt; Preferences &amp;gt; Windows Settings &amp;gt; Drive Maps”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/9.jpg&quot; alt=&quot;Instruction9screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, right click on “Drive Maps”, select “New”, and then click on “Mapped Drive”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/10.jpg&quot; alt=&quot;Instruction10screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The “New Drive Properties” window will pop up. Go ahead and fill out the information below. When done click 
+on “Ok”.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Action:	 Select “Update”.&lt;/li&gt;
+      &lt;li&gt;Location: “\&lt;server name=&quot;&quot;&gt;\ Share folder” (e.g. \\acme-pdc\Public ).&lt;/server&gt;&lt;/li&gt;
+      &lt;li&gt;Reconnect:  Make sure it is selected.&lt;/li&gt;
+      &lt;li&gt;Label As: This will be the name that shows up for users.&lt;/li&gt;
+      &lt;li&gt;Drive Letter:  Choose the letter you want.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/11.jpg&quot; alt=&quot;Instruction11screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Back at the “Group Policy Management Editor” you should now see the drive entry and a green icon next to the name.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/12.jpg&quot; alt=&quot;Instruction12screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;That’s it for the group policy. Now we need to test to make sure that it works. Turn on your workstation and log 
+into to a domain user account. Open a Windows Explorer window and navigate to “My PC”. You should now see the folder 
+that we mapped using the group policy.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note: It might take a while for the policy to transfer 
+over to the workstation. If at first you don’t see it, 
+restart  your computer 2 to 3 times before troubleshooting. 
+You can also run the command “gpupdate /force” in a command 
+prompt.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-10-Post/13.jpg&quot; alt=&quot;Instruction13screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If everything checks out then congratulations, you have successfully set up a network shared folder and deployed it 
+using a group policy. If you experience any issues check your deployment settings again and make sure that you are 
+logged in with a domain user account. You can also reach out to me for help. Until next week…&lt;/p&gt;</content><author><name>Juan Delgado</name></author><category term="Blog" /><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">AD DS Overview on How The Domain Environment is Affected</title><link href="http://localhost:4000/newblog/blog/2020/04/03/AD-Overview.html" rel="alternate" type="text/html" title="AD DS Overview on How The Domain Environment is Affected" /><published>2020-04-03T00:00:00-07:00</published><updated>2020-04-03T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2020/04/03/AD-Overview</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2020/04/03/AD-Overview.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;For this week’s blog we will be reviewing the Active Directory installations as well as the workstations 
+  installation and how it all works together. We installed the following services Active Directory, DHCP, 
+  DNS, and a Print Server.&lt;/p&gt;
+
+&lt;h2 id=&quot;active-directory&quot;&gt;Active Directory&lt;/h2&gt;
+
+&lt;p&gt;Starting with Active Directory we utilized the features Users and Computers and Group Policy management. 
+  When we added the workstation to the domain, changes occurred for these features. If we go back and check 
+  out the users and computers management console you will see an entry for the workstation in the computer’s 
+  container (Screenshot below). Whenever adding computers to the domain, the same 
+  will occur for each workstation.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-03-Post/1.jpg&quot; alt=&quot;Instruction1screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, we used the group policy management to apply policies to the computers centrally from the domain 
+  controller. We can see these changes on the actual workstation by running a command window and using the 
+  command “gpresult /Scope Computer /v”. Thinking back to the post of group policies we edited the password 
+  age from 42 to 60 which you can see shows on the command window (Screenshot Below).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-03-Post/2.jpg&quot; alt=&quot;Instruction2screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;dhcp&quot;&gt;DHCP&lt;/h2&gt;
+
+&lt;p&gt;We also activated DHCP to give out IP addresses to all workstations on the network. If we bring up the DHCP 
+  management window we can see that the workstation that we added to the domain was served an IP address from 
+  the server (Top Screenshot). If we look at the workstation side and open a command prompt, then run the command 
+  “ipconfig /all” we see that under the “DHCP server” entry is the IP address of the domain controller 
+  (Bottom Screenshot).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-03-Post/3.jpg&quot; alt=&quot;Instruction3screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-03-Post/4.jpg&quot; alt=&quot;Instruction4screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;dns&quot;&gt;DNS&lt;/h2&gt;
+
+&lt;p&gt;Like DHCP above DNS is also affected and the workstation is registered in DNS. If you open the DNS management 
+  window on the server, you should see an entry for the workstation computer (screenshot below). Having the entry 
+  saved in DNS allows you to look up computers on the network via their name instead of having to know the IP 
+  address.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-03-Post/5.jpg&quot; alt=&quot;Instruction5screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;print-server&quot;&gt;Print Server&lt;/h2&gt;
+
+&lt;p&gt;When it comes to printer management. The service allows you to add printers to computers via group policy but 
+  in case you want to add them manually if gives you the ability to add a specific printer by specifying the 
+  printer servers name then the printer name. If you go to add printer on the workstation then select the option 
+  for “Select a Shared Printer by Name” you can type in the server name, then a list of printers hosted by the 
+  print server will pop up (Screenshot below). This makes it easier to add a printer. Otherwise you would need 
+  to use the IP of the printer then have the drivers with you.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-04-03-Post/6.jpg&quot; alt=&quot;Instruction6screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;##
+As you can see having an AD environment brings structure and organization. There is a big number of things that 
+can be accomplished with an AD environment. I have only showed a very tiny portion of what can be accomplished. 
+If you find yourself wanting to learn more make sure to conduct research online, you can even find free certification 
+books online for Microsoft AD DS environments.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><category term="Blog" /><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">AD DS Print Server &amp;amp; Printer Install</title><link href="http://localhost:4000/newblog/blog/2020/03/27/Add-Print-Server.html" rel="alternate" type="text/html" title="AD DS Print Server &amp;amp; Printer Install" /><published>2020-03-27T00:00:00-07:00</published><updated>2020-03-27T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2020/03/27/Add-Print-Server</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2020/03/27/Add-Print-Server.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;This week’s blog was supposed to focus on a review of the Active Directory services we installed and 
+how those services change once a computer is added to the domain.&lt;/p&gt;
+
+&lt;p&gt;I forgot one rather important topic which is setting up a print server. Having a print server installed 
+makes managing printers very easy and it is all done from one place. Doing so also allows for the deployment 
+of printers via group policy so you never have to go computer by computer to install a printer. Instead, I 
+will be going over how to set up a print server on a server running Active Directory Domain Services (AD DS).&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Note: Prior to beginning make sure that you have a network 
+ printer on your network ready and configured with an IP address.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;We will begin by installing the print server service. Open the “Server Manger Window” and click on “Manage” 
+at the top right and then “Add Roles and Features”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/1.jpg&quot; alt=&quot;Instruction1screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The “Add Roles and Feature Wizard” window will appear. Go ahead and click “Next”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;At the next section leave the default of “Role-based or feature-based Installation” and click “Next”. Then 
+again on the thirds section named “Server Installation” leave the default and click “Next”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You should now be at the “Sever Roles” section. Look for the Role named “Print and Document Services” and 
+click on the check box.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/4.jpg&quot; alt=&quot;Instruction4screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Upon clicking the check box, a screen will pop up named “Add features that are required for Print and Document 
+Services?”. Leave the defaults and click on “Add Features”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/5.jpg&quot; alt=&quot;Instruction5screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You will then be taken back to the “Server Roles” sections. Click on “Next” to proceed.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;At the “Features” click “Next”. We won’t be installing features. Then again on the next sections “Things to Note” 
+click on “Next”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You should now be at the “Role Services” section. Here leaves the default selection of “Print Server” checked 
+off and then click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/8.jpg&quot; alt=&quot;Instruction8screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;At the “Confirmation” sections click on “Installed” to begin the installation. It will take a few minutes. 
+Once finished click on “Close” to exit out of the “Add Roles and Features Wizard”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, we will add a printer to the print server management console. Begin by opening the windows menu and going 
+to “Windows Administrative Tools” and then selecting “Print Management”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/10.jpg&quot; alt=&quot;Instruction10screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The “Print Management” window will open. You should see a window like the screenshot below.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/11.jpg&quot; alt=&quot;Instruction11screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;To begin the installation of a printer, navigate to the left menu then click on “Print Servers” to expand the 
+sub menu. You should now see the server name, click on the name and another list will appear. You want to click 
+in to the “Printers” entry.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/12.jpg&quot; alt=&quot;Instruction12screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once you’re at the printer’s section you will need to right click into the open area and then select the option 
+for “Add Printer…”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/13.jpg&quot; alt=&quot;Instruction13screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The “Network Printer Installation Wizard” window will pop up. Leave the default of “Add TCP/IP or Web Services 
+Printer by IP address or hostname” then click “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/14.jpg&quot; alt=&quot;Instruction14screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You should now be on the IP address section. Change the “Type of device” to “TCP/IP Device”, then enter the IP 
+address of the printer, and leave the check box for “Auto detect” checked off. When done click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/15.jpg&quot; alt=&quot;Instruction15screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The wizard will now search for and detect the printer.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once the wizard has detected the printer you will see the screen below and be asked to provide the driver software. 
+When ready click “Next” to go to the driver selection window.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note: In some cases, the wizard will be able to download 
+the driver if it can find it through windows update.  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/17.jpg&quot; alt=&quot;Instruction17screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;At the driver selection window, you can do one of two things. Search for the driver based on the brand or you can 
+choose “Have Disk…” and upload the driver software yourself. For this tutorial we will choose a preinstalled driver.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note: Not all printer brands and drivers will be available. 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/18.jpg&quot; alt=&quot;Instruction18screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the next section, you will be asked to provide details for the printer such as; Printer Name, Share Name, Location, 
+and Comment. The more important field are the Printer and Share names as there are the names that will show when the
+printer is added to a computer. When done filling out click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/19.jpg&quot; alt=&quot;Instruction19screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You will now see the details for the printer install. Go ahead and click “Next”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The printer will install and when finished you will see the screen below. Click “Finish” to close the window.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/21.jpg&quot; alt=&quot;Instruction21screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now back at the printer window you should now see an entry for the printer you created. Like in the image below.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-27-Post/23.jpg&quot; alt=&quot;Instruction23screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Congratulation! you have successfully installed a printer on the print server for your domain. Next week I will finally 
+cover and review changes that have occurred on our domain controller and domain workstation so you can get a sense of what 
+goes on when you have an AD DS environment.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><category term="Blog" /><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Adding a Windows 10 Computer to a Domain</title><link href="http://localhost:4000/newblog/blog/2020/03/13/add-comp-to-domain.html" rel="alternate" type="text/html" title="Adding a Windows 10 Computer to a Domain" /><published>2020-03-13T00:00:00-07:00</published><updated>2020-03-13T00:00:00-07:00</updated><id>http://localhost:4000/newblog/blog/2020/03/13/add-comp-to-domain</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2020/03/13/add-comp-to-domain.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;Last week we setup a fresh install of windows 10 on a computer. This week we will be adding that computer 
+to the domain that we created a few blog posts back. The reason why we would want to add this computer to 
+the domain is:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It would make it easier to manage the computer&lt;/li&gt;
+  &lt;li&gt;It would make it easier to manage the computers users&lt;/li&gt;
+  &lt;li&gt;It would allow us to perform other actions from a central location&lt;/li&gt;
+  &lt;li&gt;And other cool stuff…&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Ultimately, having to work on an Ansible playbook was not a daunting as I originally thought it would be. Yes, there is a new syntax that need to be learned but that’s nothing when you think about the knowledge that is gained in the process.&lt;/p&gt;
+&lt;p&gt;To get started fire up the computer and make sure it is attached to the same network as your domain controller 
+(server) and that both are on.&lt;/p&gt;
 
-&lt;p&gt;Thanks for reading!&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;The very first thing we need to do is add the computer to the domain. At the log in screen go ahead and 
+sign in.&lt;/p&gt;
 
-&lt;p&gt;P.S. Since submitting this blog I have yet to finish the playbooks. I will give an update on next weeks blog. Stay tuned!&lt;/p&gt;</content><author><name>Juan Delgado</name></author><summary type="html">Hi Everyone,</summary></entry></feed>
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/1.jpg&quot; alt=&quot;Instruction1screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next open a file explorer window (manila folder icon). From here we will navigate to the “System” window.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/2.jpg&quot; alt=&quot;Instruction2screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;To the left of the explorer window go ahead and right click on “This PC” and select properties.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/3.jpg&quot; alt=&quot;Instruction3screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;At the “System” window go down to “Computer name, domain, and workgroup settings” and select the option to 
+the right named “Change settings”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/4.jpg&quot; alt=&quot;Instruction4screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The “System Properties” window will now show. Click on the option named “Network ID…” to begin launch the 
+“Join a domain or workgroup” window to begin adding the computer to the domain.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/5.jpg&quot; alt=&quot;Instruction5screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the first section named “Select the options that describe your network” leave the default option and 
+then click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/6.jpg&quot; alt=&quot;Instruction6screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next on the “Is your company network on a domain?” leave the default of selection and click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/7.jpg&quot; alt=&quot;Instruction7screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the next screen read the details of what you will need (password, admin domain username) and then click 
+on “Next”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You will now need to input your domain admin account information and the name of the domain. When done click 
+on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/9.jpg&quot; alt=&quot;Instruction9screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the next window you will need to type in the domain again. Make sure to leave the computer name alone, 
+DO NOT changed it. Then click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/10.jpg&quot; alt=&quot;Instruction10screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A window will pop up and you will once again need to provide your credentials and your domain name. Then 
+click on “OK”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/11.jpg&quot; alt=&quot;Instruction11screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The computer will now go through the process of getting added to the domain. If you are successful in 
+adding it, you will see a screen titled “Do you want to enable a domain user account on this computer?”. 
+Select the second option of “Do not add a domain user account” and then click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/12.jpg&quot; alt=&quot;Instruction12screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You will now see a window letting you know that you need to restart your computer for the settings to take 
+effect. Go a head and click on “Finish” to get taken back to the “Systems Properties” window.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;At the “Systems Properties” window go ahead and click on “Okay”. A small window will appear letting you know 
+once again that you need to restart the computer. Click on “Restart Now”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/14.jpg&quot; alt=&quot;Instruction14screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The computer will go through the restart process.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once you are back at the log in screen you will need to select “Other User” to log into your domain user account. 
+Type your credential and log in.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note: notice how underneath the password section you now see an 
+indicator that you will be signing into ACME. In other words, 
+you’re signing onto the ACME domain.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-13-Post/16.jpg&quot; alt=&quot;Instruction16screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Congratulations you have now successfully added a computer to the domain and signed in using a domain user account. 
+On the next blog we will be going over some of the ways that the domain controller has affected this computer. 
+If you recall we turned on some services such as DHCP, DNS, and Group Policies all of which influence the computer/users 
+that are members of the domain.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><category term="Blog" /><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Installing Windows 10 Pro For Domain Environment</title><link href="http://localhost:4000/newblog/blog/2020/03/06/Windows10-Install.html" rel="alternate" type="text/html" title="Installing Windows 10 Pro For Domain Environment" /><published>2020-03-06T00:00:00-08:00</published><updated>2020-03-06T00:00:00-08:00</updated><id>http://localhost:4000/newblog/blog/2020/03/06/Windows10-Install</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2020/03/06/Windows10-Install.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;Now that we have installed and set up a Domain Controller. We should check that some of the services/roles
+that we installed actually work. To do so we will need a workstation that we can setup on the domain and
+then use to check the various services/roles. I will be breaking down this process down into two separate
+post. The first will deal with installing a fresh install of Windows 10 pro and the second post will deal
+with checking that the services / roles that we installed work. With that being said let’s go ahead and
+get started.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    Note: Like I did with the domain controller, I will be using a
+    virtual environment.  It is the fastest and easiest way to set
+    up an environment for these purposes. If you are going to use a
+    physical computer, make sure that it is on the same network as
+    your domain controller.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Start by booting up the computer to the Windows 10 install image.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Note: you can use a USB or CD if your computer has one. I will
+ be utilizing just he ISO file since this is a virtual environment.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You should see the initial window below. Click on “Next” then click on “Install Now”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/2.jpg&quot; alt=&quot;Instruction2screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;At the “Activate Windows” screen enter a license key if you have one otherwise select the option for
+“I don’t have a product key”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/3.jpg&quot; alt=&quot;Instruction3screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, of the operating system selection screen choose the option for “Windows 10 Pro” then click on
+“Next”.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Note: Only the Pro installation comes with the ability to add
+ the computer to the domain. DO NOT choose any other option but
+ Pro or else you will need to go through this initial process
+ again.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/4.jpg&quot; alt=&quot;Instruction4screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the licensing window accept the license terms by checking off the box next to “I accept the license
+terms” and then click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/5.jpg&quot; alt=&quot;Instruction5screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the “Installation Type” window go ahead and select “Custom: Install Windows Only (advanced)”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/6.jpg&quot; alt=&quot;Instruction6screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, Select the drive that you would like to install windows on. I only have one drive available but
+depending on your resources you might have additional drives. Make sure to select the correct one
+(usually starts with “Drive 0”). Then click “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/7.jpg&quot; alt=&quot;Instruction7screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now windows 10 will begin installing. This process will take a few minutes to complete. The installation
+will restart once finished.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/8.jpg&quot; alt=&quot;Instruction8screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Upon restarting the installation will go through a setup process and you will see a window like the
+one below.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/9.jpg&quot; alt=&quot;Instruction9screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once all that setup is completed you will be taken to the user set up screen. The first thing you will
+do is select the region. In our case it is the “United States”. Click on “Yes”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/10.jpg&quot; alt=&quot;Instruction10screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The next two steps will focus on the keyboard layout. On the first step choose “US” as the keyboard
+layout and then click on “Yes”. The following step will ask if you would like to install a secondary
+keyboard layout. Go ahead and click on “Skip”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now the network will be setup and updated will be installed. Make sure your installation is hooked
+up to a network.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note: In Virtual Box when first installing an OS it will be
+connected to a network which will allow internet access.  I
+will be moving it over to the network I created and added the
+DC too later behind the scenes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now you should be at the “How would you like to set up?” window. Go ahead and select the option for
+“Set up for an organization”. Then click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/13.jpg&quot; alt=&quot;Instruction13screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the following window DO NOT sign in with a Microsoft account. Instead choose the option for
+“Domain Join Instead”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/14.jpg&quot; alt=&quot;Instruction14screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You will now be at the user setup window. Go ahead and enter the name for the local admin account
+that you will like to use. I will use the following “acmeadm”. Then click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/15.jpg&quot; alt=&quot;Instruction15screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now you will need to create a password for the user. Make sure to make it complex but memorable.
+Then click on “Next” and enter the password again on the confirmation window.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Up next is the security window screen. You will need to choose and answer 3 security questions.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/17.jpg&quot; alt=&quot;Instruction17screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For the next option “activity history” click on “yes”. Then after that for “digital assistant”
+click on “Accept”. Lastly, for the privacy settings leave the default and click on “Accept”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once all of this is finished you will be taken to the desktop. The last thing we will do is change
+the computer name. Go ahead an open the file explorer and then to the left right click on “This PC”
+and then select “Properties”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/19.jpg&quot; alt=&quot;Instruction19screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You will now be at the system window. Under the section called “Computer name, domain, and workgroup
+settings” click on the option to the right called “Change Settings”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/20.jpg&quot; alt=&quot;Instruction20screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The “Systems Property” window will pop up and you will need to click on the option to the bottom named
+“Change..”. The description to the left starts with “To rename this computer…”&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/21.jpg&quot; alt=&quot;Instruction21screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the window that pops up, “Computer Name/Domain Changes”, go ahead and type a good computer name. I
+will use “acme-user-pc1”. Then go ahead and click “OK”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-03-06-Post/22.jpg&quot; alt=&quot;Instruction22screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lastly you will be prompted to restart the computer, Click “Okay” and then on back at the “System
+Properties” window click on close. A small window will pop up and go ahead and select “Restart Now”.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Congratulations, you have successfully installed a fresh copy on windows 10 and changed the computer name 
+in preparation to add it to the domain which we will do on next weeks blog. Thanks for reading!&lt;/p&gt;</content><author><name>Juan Delgado</name></author><category term="Blog" /><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Setting up a DHCP Server and DNS For an Active Directory Environment</title><link href="http://localhost:4000/newblog/blog/2020/02/28/DHCP-DNS-Setup.html" rel="alternate" type="text/html" title="Setting up a DHCP Server and DNS For an Active Directory Environment" /><published>2020-02-28T00:00:00-08:00</published><updated>2020-02-28T00:00:00-08:00</updated><id>http://localhost:4000/newblog/blog/2020/02/28/DHCP-DNS-Setup</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2020/02/28/DHCP-DNS-Setup.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;Now that we have setup up Active Directory, created users, and group policies. We can begin preparing the 
+domain controller to handle some networking task. Usually for smaller organizations the Domain Controllers 
+will host DCHP and DNS servers to help handle network traffic. In large organizations the DCHP and DNS servers 
+will usually be installed on separate servers so that they can handle high traffic but for our purposes we will 
+stick with an all in one solution.&lt;/p&gt;
+
+&lt;p&gt;We will first install and then set up a DHCP server role with will then activate the DNS server.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;To install the DHCP role start by going to “Manage” and then selecting “Add Role and Feature” in the Server 
+Manager window.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/1.jpg&quot; alt=&quot;Instruction1screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next on the “Add Roles and Feature Wizard” windows select “next” at the bottom.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/2.jpg&quot; alt=&quot;Instruction2screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Under the “Installation Type” section leave the default on “Role-based of feature-based installation” and the 
+click “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/3.jpg&quot; alt=&quot;Instruction3screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next on the “Server Selection” section leave the defaults and then click on “next”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now, on the “Server Roles” section you will need to check off “DHCP”, doing so will pop up a “Add Features” 
+pop up window. Leave the defaults for that windows and click on “Add Feature”. You will be taken to the 
+previous window where you will see “DHCP” checked off. Go ahead and click “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/5.jpg&quot; alt=&quot;Instruction5screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the next section called “Features” leave the defaults and click on “Next”. Do the same for the next 
+sections called “DHCP Server”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Finally, at the confirmation section. Look over the settings you choose, make sure everything looks good and 
+then click on “Install”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/7.jpg&quot; alt=&quot;Instruction7screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The installation will take a few minutes to complete. Once done click on “Close”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now that we have the DHCP role installed let’s go ahead and configure it. At the server manager window, you 
+should now notice a caution sign at the top right. Click the caution sign and then select the link that says 
+“Complete DHCP Configuration”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/9.jpg&quot; alt=&quot;Instruction9screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You will now see the “DHCP Post-Install configuration wizard” window. The window gives details on what will 
+be accomplished through the wizard. In this case the security groups for the service will be created. Go 
+ahead and click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/10.jpg&quot; alt=&quot;Instruction10screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the “Authorization” section leave the default of “Use the following user’s credentials” and then click 
+on “Commit”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/11.jpg&quot; alt=&quot;Instruction11screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the “Summary” section go ahead and click on “Close”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We are not quite down yet. The last thing to do is create a scope of addresses that the server will give out 
+to workstations. Start by opening the “DHCP” snap-in located under “Administrative Tools”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/13.jpg&quot; alt=&quot;Instruction13screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the “DHCP” snap-in window to the left you will need to expand the entry that shows your domain controller 
+name and domain name. This will uncover a “IPv4” and “IPv6” option. Highlight the “IPv4” to show the 
+“Add Scope” message.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note: for this tutorial we will not be using IPv6.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/14.jpg&quot; alt=&quot;Instruction14screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now right click on the “IPv4” entry and select the “New Scope” option.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/15.jpg&quot; alt=&quot;Instruction15screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You will now see the “New Scope Wizard” window. Go ahead and click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/16.jpg&quot; alt=&quot;Instruction16screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the next windows you will need to provide a scope name. To keep it simple I will use “acmev4scope” but 
+you can you whatever you like. Then click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/17.jpg&quot; alt=&quot;Instruction17screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now you will see the “IP Address Range” section you will need to enter some IP addresses for the server to 
+hand out. I will be using a class C range of only 20 addresses and a subnet of 24 (See screenshot for 
+details). When done click on “Next”&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note: This is something that you will need to think about and will need 
+      to take the size of the organization into account. This is a simple
+      tutorial so we will be using a small range of addresses. 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/18.jpg&quot; alt=&quot;Instruction18screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the next window “Exclusions..” leave everything as is and click on “Next”. We will not be excluding 
+any IP addresses in the range that we specified for this tutorial.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The next window deals with the lease duration for the IP address. Go ahead and leave the default of 8 
+days then click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/20.jpg&quot; alt=&quot;Instruction20screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now you will see the section for “Configure DHCP Options”. We want to leave the default of yes. In the 
+next few steps we will be specifying the IP address information for the gateway (router) and other options
+that will be given to workstations. Click “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/21.jpg&quot; alt=&quot;Instruction21screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For the Router entry go ahead and enter your gateway address. Then click on “Add” then click on “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/22.jpg&quot; alt=&quot;Instruction22screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the next window called “Domain Name and DNS servers” leave the defaults and then click on “Next”. On the 
+“WINS Server” section also leave it alone and click on “Next”.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note: Under DNS entry we left the default because we will be using the 
+      domain controller as a DNS server. In the real world you could 
+      include a backup serve address such as the one provided by your 
+      ISP for redundancy. If your DC would go down, then staff would 
+      still be able to get out to the internet.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Finally, you should be at the “Activate Scope” window. Leave the default of “Yes, I want to activate this 
+scope now” and click on “Next”&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/25.jpg&quot; alt=&quot;Instruction25screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now click on “Finish”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Back at the “DHCP” window you will now see more details to the left. If you go to the “Address Pool” entry 
+you will not see that range of IP addresses that we specified for the server to give out. Once we add a 
+workstation to the network you will see it show up under the “Address Leases” section.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note: DNS server will begin going to work as soon as we activate the 
+      scope and get computer on the network. For this environment we 
+      don’t have to make any changes to the DNS server settings. 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-28-Post/26.jpg&quot; alt=&quot;Instruction26screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Congratulations you have now successfully added a DHCP server to a domain controller. You will see the fruits of 
+this labor once we add a workstation to the network, which we will in one of the next blog post.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><category term="Blog" /><summary type="html">Hi Everyone, Now that we have setup up Active Directory, created users, and group policies. We can begin preparing the domain controller to handle some networking task. Usually for smaller organizations the Domain Controllers will host DCHP and DNS servers to help handle network traffic. In large organizations the DCHP and DNS servers will usually be installed on separate servers so that they can handle high traffic but for our purposes we will stick with an all in one solution. We will first install and then set up a DHCP server role with will then activate the DNS server.</summary></entry><entry><title type="html">Active Directory Group Policy Management</title><link href="http://localhost:4000/newblog/blog/2020/02/21/AD-Group-Policy.html" rel="alternate" type="text/html" title="Active Directory Group Policy Management" /><published>2020-02-21T00:00:00-08:00</published><updated>2020-02-21T00:00:00-08:00</updated><id>http://localhost:4000/newblog/blog/2020/02/21/AD-Group-Policy</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2020/02/21/AD-Group-Policy.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;Moving forward with the series of blog post focusing on AD DS we will be focusing on creating group policies.
+When working in a windows environment you will be asked to create group policies for computers or users.&lt;/p&gt;
+
+&lt;p&gt;Think of group policies as permissions that allow you to control what a user or computer can do. From the group
+policy management window, you can control every single user, group, or computer that is apart of your domain.
+For our purposes we will be creating a simple Group Policy Object (GPO) to control user settings. We will not
+dive into the computer portion on this post because we have yet to add computers to our domain. I’m leaving that
+process for another blog later.&lt;/p&gt;
+
+&lt;p&gt;If you need the actual definitions here it is:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      Group Policy Management is a feature that controls the working environment 
+      of user accounts and computer accounts and provides centralized management 
+      and configuration of operating systems, applications, and users' settings 
+      in an Active Directory environment.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Start by opening the “Group Policy Management” snap-in located under “Administrative Tools”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/1.jpg&quot; alt=&quot;Instruction1screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the left-hand side, you should see the user and computer folders that we created on the last blog post dealing
+with users and computers.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/2.jpg&quot; alt=&quot;Instruction2screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Go ahead and expand the folder labeled “Group Policy Objects” to discover the current two policies that are active.
+One is called “Default Domain Controller” and the other “Default Domain Policy”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/3.jpg&quot; alt=&quot;Instruction3screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;To keep it simple for us we will be editing the “Default Domain Policy”. In a professional environment I recommend 
+creating a copy of the “Default Domain Policy” and using that copy as the primary policy.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Go ahead and right click on the “Default Domain Policy” entry and click on “edit.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/5.jpg&quot; alt=&quot;Instruction5screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The “Group Policy Management Editor” window will show up. This screen allows us to edit the policy in any way that 
+we choose.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/6.jpg&quot; alt=&quot;Instruction6screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The first policy we will edit is connected to amount of days a password can be used. It is currently set to 42 days, 
+but we will be changing it to 60 days.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Go ahead and expand the folders to the left in this order, “Computer Configuration &amp;gt; Policies &amp;gt; Windows Settings &amp;gt; 
+Security Settings &amp;gt; Account Policies &amp;gt; Password Policy” once done you should see the available password policies.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/8.jpg&quot; alt=&quot;Instruction8screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Right click on “Maximum Password Age” and select “Properties”&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/9.jpg&quot; alt=&quot;Instruction9screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the properties window go ahead and change the days from 42 to 60 and click on “OK”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/10.jpg&quot; alt=&quot;Instruction10screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;That’s if you have now changed a computer-based group policy. Next we will change a user-based policy dealing with 
+screen savers. If the user leaves and the screen saver turns on upon returning we want the log in screen to instead 
+show. This helps in limiting unauthorized access.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Back at the “Group Policy Management Editor” expand the folders in this order, “User Configuration &amp;gt; 
+Administrative Template &amp;gt; Control Panel &amp;gt; Personalization” once down you should see the personalization options.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/12.jpg&quot; alt=&quot;Instruction12screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Right click on “Password Protect the Screen Saver” and select “Edit”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/13.jpg&quot; alt=&quot;Instruction13screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the setting window go ahead an enable the policy by selecting the “Enabled” radio button. Then click on “Okay”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/14.jpg&quot; alt=&quot;Instruction14screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;That’s it the user-based policy has now been applied. You can go ahead and close the Group Policy Management Editor” 
+window.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The last step is to link the policy to our user and computer containers. At the “Group Policy Management” window right 
+click on the computer container and then select “Link to existing GPO”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/16.jpg&quot; alt=&quot;Instruction16screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the “Select GPO” windows highlight the policy we edited which is “Default Domain Policy” and then click on “Okay”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/17.jpg&quot; alt=&quot;Instruction17screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You should now notice that the Policies name is now showing under the computer container. Go ahead and do the same for 
+the user container.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-21-Post/18.jpg&quot; alt=&quot;Instruction18screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Congratulations, the next step would be to add a workstation to the domain and test the policy. Which we will do later in a 
+blog post dealing with setting up workstations and adding them to a domain.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><category term="Blog" /><summary type="html">Hi Everyone,</summary></entry><entry><title type="html">Active Directory Users and Computers</title><link href="http://localhost:4000/newblog/blog/2020/02/14/ADDS-Users-Computers.html" rel="alternate" type="text/html" title="Active Directory Users and Computers" /><published>2020-02-14T00:00:00-08:00</published><updated>2020-02-14T00:00:00-08:00</updated><id>http://localhost:4000/newblog/blog/2020/02/14/ADDS-Users-Computers</id><content type="html" xml:base="http://localhost:4000/newblog/blog/2020/02/14/ADDS-Users-Computers.html">&lt;p&gt;Hi Everyone,&lt;/p&gt;
+
+&lt;p&gt;Moving forward with the series of blog post focusing on AD DS we will be focusing on creating
+Organizational Units also know as Containers and User accounts. When working in a windows environment
+you will be asked to maintain containers and create user accounts.&lt;/p&gt;
+
+&lt;p&gt;Active Directory Users and Computers is the full name of the snap-in we will be using and if you took
+a guess and concluded that it involves maintaining users, groups, and computers then you are correct.
+The main purpose of AD Users and computers is to do just that. Below we will create some new containers
+and a new network admin account as well as a regular non privileged user account that will be a member
+of the Domain Users group and container.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Start by opening the “Active Directory Users and Computers” snap-in located under “Administrative Tools”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-14-Post/1.jpg&quot; alt=&quot;Instruction1screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once opened you will notice a bunch of folders to the left. We will refer to these as containers. Notice
+that each container has a specific name and will server a specific purpose. Click on the “User” container
+to view all the users and groups.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-14-Post/2.jpg&quot; alt=&quot;Instruction2screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Let’s start off by creating a new container for our unprivileged users. Right click on the name of your 
+domain then hover or “New” and select “Organizational Unit”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-14-Post/3.jpg&quot; alt=&quot;Instruction3screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;At the “New Object Screen” type in the name you want. I will use “Acme Users” then click on “OK”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-14-Post/4.jpg&quot; alt=&quot;Instruction4screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now we will create our domain admin account by copying directly from the built-in admin account which is
+the account we first create when we set up the server. Right click on the administrator entry and select
+“Copy…”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-14-Post/5.jpg&quot; alt=&quot;Instruction5screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The “Copy-Object User” window will appear and now you will need to type in a “first name”, which will
+populate the full name, and a “User Logon Name”. I used “acmeadmin” once done click “Next”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-14-Post/6.jpg&quot; alt=&quot;Instruction6screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now we will create the password. Make sure to use a complex password for this account. Then click “Next” to
+go to the details overview window and finally click on “Finish”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;With the Domain admin account created let’s go ahead and create non privileged user. Start by clicking the
+“Create a new user icon at the top” (Red Box). Then on the window that pops up fill in the user’s information
+like we did for the admin account. I used “acmeuser”. Click “Next”, create a password then click “Next” again
+and finally click “Finish”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-14-Post/8.jpg&quot; alt=&quot;Instruction8screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The user account will automatically be added to the “Domain Users” group.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, we will need to add the domain user we created to the new container that was created in step 4. This is
+required so that we can later be able to apply group policies to the user.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Note: Group Policies will be covered in next week’s 
+blog post.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Right click on the domain user account that was created and then select “Move…”&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-14-Post/11.jpg&quot; alt=&quot;Instruction11screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the window that pops go ahead and highlight the container that you created and then click on “OK”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-14-Post/12.jpg&quot; alt=&quot;Instruction12screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;To confirm that the user was moved, Select the container and you should now see that the user you created is
+the only entry.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-14-Post/13.jpg&quot; alt=&quot;Instruction13screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Lastly, lets create another one more container which will be used at a future time and will have all the
+organization’s computers in it. This will also be helpful with group policies.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Right click on the name of your domain then hover or “New” and select “Organizational Unit”. Then name the
+container, I used “Acme Computers”. Then click on “OK”.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/newblog/img/resources/2020-02-14-Post/15.jpg&quot; alt=&quot;Instruction15screenshot&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Congratulations you have successfully accomplished creating a new domain admin, domain user, and two containers;
+one for the users and one for the computers. Next week we will cover group policies and you will see why it was
+helpful for us to create these accounts and containers.&lt;/p&gt;</content><author><name>Juan Delgado</name></author><category term="Blog" /><summary type="html">Hi Everyone,</summary></entry></feed>
